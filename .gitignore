@@ -1,0 +1,6 @@
+apache-tomcat/bin/*
+apache-tomcat/conf/*
+apache-tomcat/lib/*
+apache-tomcat/logs/*
+apache-tomcat/work/*
+.DS_Store

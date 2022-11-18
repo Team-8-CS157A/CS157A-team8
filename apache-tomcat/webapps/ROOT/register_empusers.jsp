@@ -2,51 +2,53 @@
 <html>
   <head>
     <title>Inventory Manager</title>
-    </head>
+    <style><%@include file="/css/register.css"%></style>
+
+  </head>
   <body>
-    <h1>Inventory Manager</h1>
-	<h2>Register New Emp User</h2>
-    
-     <div class="reg-emp-body">
+    <div class="reg-header">
+        <h1>Inventory Manager</h1>
+        <h2>Register New Admin User</h2>
+        <div class="reg-body">
                 <form action="">
-					<div class="reg-emp-input-container">
+                    <div class="reg-input-container">
                         <label for="">Emp ID</label>
                         <input placeholder = "Pregiven Emp ID Number" NAME = "empIDempR" type="int" />
                     </div>
-					<div class="reg-emp-input-container">
+                    <div class="reg-input-container">
                         <label for="">First Name</label>
                         <input placeholder = "First Name" NAME = "firstNameempR" type="text" />
                     </div>
-					<div class="reg-emp-input-container">
+                    <div class="reg-input-container">
                         <label for="">Last Name</label>
                         <input placeholder = "Last Name" NAME = "lastNameempR" type="text" />
                     </div>
-                    <div class="reg-emp-input-container">
+                    <div class="reg-input-container">
                         <label for="">Username</label>
                         <input placeholder = "Create Username" NAME = "usernameempR" type="text" />
                     </div>
-                    <div class="reg-emp-input-container">
+                    <div class="reg-input-container">
                         <label for="">Password</label>
                         <input  placeholder = "Create Password" NAME = "passwordempR "type="password" />
                     </div>
-					<div class="reg-emp-input-container">
+                    <div class="reg-input-container">
                         <label for="">Phone Number</label>
                         <input  placeholder = "Phone Number" NAME = "phoneNumempR"type="text" />
                     </div>
-					<div class="reg-emp-input-container">
+                    <div class="reg-input-container">
                         <label for="">Store ID</label>
                         <input  placeholder = "Store ID" NAME = "storeIDempR "type="int" />
                     </div>
-					<div class="reg-emp-input-container">
+                    <div class="reg-input-container">
                         <label for="">Admin ID</label>
                         <input  placeholder = "Your manager's ID Number" NAME = "adminIDempR "type="int" />
                     </div>
-                    <div class="reg-emp-button-container">
+                    <div class="reg-button-container">
                         <button>Register</button>
                     </div>
                 </form>
-            </div>
         </div>
+    </div>
     <% 
 	
 	// Database info

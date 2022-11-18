@@ -2,35 +2,39 @@
 <html>
   <head>
     <title>Inventory Manager</title>
-    </head>
+    <style><%@include file="/css/add.css"%></style>
+
+  </head>
   <body>
-    <h1>Add Store</h1>
-	<h2>should be assessible from home page</h2>
+    <div class="add-header">
+        <h1>Inventory Manager</h1>
+        <h2>Add Store</h2>
+        <p>should be assessible from home page</p>
     
-     <div class="add-store-body">
+        <div class="add-body">
                 <form action="">
-					<div class="add-store-input-container">
+                    <div class="add-input-container">
                         <label for="">Store ID</label>
                         <input placeholder = "Store ID" NAME = "storeID-AS" type="int" />
                     </div>
-					<div class="add-store-input-container">
+                    <div class="add-input-container">
                         <label for="">Admin ID</label>
                         <input placeholder = "Name" NAME = "adminID-AS" type="int" />
                     </div>
-                    <div class="add-store-input-container">
+                    <div class="add-input-container">
                         <label for="">Address</label>
                         <input placeholder = "123 Example Address" NAME = "storeAddress-AS" type="text" />
                     </div>
-					<div class="add-store-input-container">
+                    <div class="add-input-container">
                         <label for="">Store Inventory ID</label>
                         <input placeholder = "Store Inventory ID" NAME = "storeInvID" type="int" />
                     </div>
-                     <div class="add-store-button-container">
+                     <div class="add-button-container">
                         <button>Add Store</button>
                     </div>
                 </form>
-            </div>
         </div>
+    </div>
     <% 
 	
 	// Database info

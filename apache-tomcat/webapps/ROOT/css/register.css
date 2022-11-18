@@ -1,0 +1,97 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url('../images/background1.jpg') no-repeat center center;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    /* backdrop-filter: brightness(60%); */
+}
+
+label {
+    color: #FFF;
+}
+
+div.reg-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+div.reg-header h1 {
+    font-size: 70px;
+    color: #386641;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+div.reg-header h2 {
+    font-size: 40px;
+    color: #2d7e3d;
+    margin: 0px;
+}
+
+/* div.-header h2:after {
+    content: '';
+    display: block;
+    height: 5px;
+    background: #4f772d;
+    width: 35%;
+    margin: 0 auto;
+} */
+
+div.reg-body {
+    padding: 20px;
+}
+
+div.reg-body form {
+    margin: 0 auto;
+    width: 450px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 50px;
+    border-radius: 8px;
+}
+
+div.reg-input-container {
+    margin-top: 30px;
+}
+
+div.-input-container label {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+div.reg-input-container input {
+    height: 30px;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+div.reg-input-container input::placeholder {
+    color: #bcb8b1;
+}
+
+div.reg-button-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+div.reg-button-container button {
+    font-size: 20px;
+    padding: 10px 20px;
+    background: #386641;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+div.reg-button-container button:hover {
+    cursor: pointer;
+}

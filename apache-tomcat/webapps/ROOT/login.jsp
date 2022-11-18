@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>Inventory Manager</title>
+      <style><%@include file="/css/login.css"%></style>
     </head>
   <body>
-    <h1>Inventory Manager</h1>
-	<h2>Login</h2>
-    
-     <div class="login-body">
+        <div class="login-header">
+            <h1>Inventory Manager</h1>
+            <h2>Login</h2>
+            <div class="login-body">
                 <form action="">
                     <div class="login-input-container">
                         <label for="">Username</label>

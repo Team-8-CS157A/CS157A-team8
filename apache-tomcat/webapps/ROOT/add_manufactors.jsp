@@ -2,31 +2,34 @@
 <html>
   <head>
     <title>Inventory Manager</title>
-    </head>
+    <style><%@include file="/css/add.css"%></style>
+  </head>
   <body>
-    <h1>Add Manufacturer</h1>
-	<h2>should only b accessible from admin page</h2>
+    <div class="add-header">
+        <h1>Inventory Manager</h1>
+        <h2>Add Manufacturer</h2>
+        <p>Note: should only b accessible from admin page</p>
     
-     <div class="add-manu-body">
+        <div class="add-body">
                 <form action="">
-					<div class="add-manu-input-container">
+					<div class="add-input-container">
                         <label for="">Manufacturer ID</label>
                         <input placeholder = "Manufacturer ID" NAME = "manuID-AM" type="int" />
                     </div>
-					<div class="add-manu-input-container">
+                    <div class="add-input-container">
                         <label for="">Manufacturer Name</label>
                         <input placeholder = "Name" NAME = "manuName-AM" type="text" />
                     </div>
-                    <div class="add-manu-input-container">
+                    <div class="add-input-container">
                         <label for="">Manufacturer Address</label>
                         <input placeholder = "123 Example Address" NAME = "manuAddress-AM" type="text" />
                     </div>
-                     <div class="add-manu-button-container">
+                     <div class="add-button-container">
                         <button>Add Manufacturer</button>
                     </div>
                 </form>
-            </div>
         </div>
+    </div>
     <% 
 	
 	// Database info

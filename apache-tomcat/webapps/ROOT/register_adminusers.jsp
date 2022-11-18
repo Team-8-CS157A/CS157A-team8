@@ -2,47 +2,48 @@
 <html>
   <head>
     <title>Inventory Manager</title>
+    <style><%@include file="/css/register.css"%></style>
     </head>
   <body>
-    <h1>Inventory Manager</h1>
-	<h2>Register New Admin User</h2>
-    
-     <div class="reg-admin-body">
+    <div class="reg-header">
+        <h1>Inventory Manager</h1>
+         <h2>Register New Admin User</h2>
+        <div class="reg-body">
                 <form action="">
-					<div class="reg-admin-input-container">
+					<div class="reg-input-container">
                         <label for="">First Name</label>
                         <input placeholder = "First Name" NAME = "firstNameReg" type="text" />
                     </div>
-					<div class="reg-admin-input-container">
+                    <div class="reg-input-container">
                         <label for="">Last Name</label>
                         <input placeholder = "Last Name" NAME = "lastNameReg" type="text" />
                     </div>
-                    <div class="reg-admin-input-container">
+                    <div class="reg-input-container">
                         <label for="">Username</label>
                         <input placeholder = "Create Username" NAME = "usernameReg" type="text" />
                     </div>
-                    <div class="reg-admin-input-container">
+                    <div class="reg-input-container">
                         <label for="">Password</label>
                         <input  placeholder = "Create Password" NAME = "passwordReg "type="password" />
                     </div>
-					<div class="reg-admin-input-container">
+                    <div class="reg-input-container">
                         <label for="">Admin ID</label>
                         <input  placeholder = "Pregiven Admin ID Number" NAME = "adminIDReg "type="int" />
                     </div>
-					<div class="reg-admin-input-container">
+                    <div class="reg-input-container">
                         <label for="">Phone Number</label>
                         <input  placeholder = "Phone Number" NAME = "phoneNumReg"type="text" />
                     </div>
-					<div class="reg-admin-input-container">
+                    <div class="reg-input-container">
                         <label for="">Store ID</label>
                         <input  placeholder = "Store ID" NAME = "storeIDReg "type="int" />
                     </div>
-                    <div class="reg-admin-button-container">
+                    <div class="reg-button-container">
                         <button>Register</button>
                     </div>
                 </form>
-            </div>
         </div>
+    </div>
     <% 
 	
 	// Database info

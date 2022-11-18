@@ -2,8 +2,10 @@
 <html>
   <head>
     <title>Inventory Manager</title>
+      <style><%@include file="/css/login.css"%></style>
     </head>
   <body>
+<<<<<<< HEAD
     <h1>Inventory Manager</h1>
 	<h2>Login</h2>
     
@@ -21,6 +23,26 @@
                     <button>Login</button>
                 </div>
             </form>
+=======
+        <div class="login-header">
+            <h1>Inventory Manager</h1>
+            <h2>Login</h2>
+            <div class="login-body">
+                <form action="">
+                    <div class="login-input-container">
+                        <label for="">Username</label>
+                        <input placeholder = "username" NAME = "usernameLogin" type="text" />
+                    </div>
+                    <div class="login-input-container">
+                        <label for="">Password</label>
+                        <input  placeholder = "password" NAME = "passwordLogin "type="password" />
+                    </div>
+                    <div class="login-button-container">
+                        <button>Login</button>
+                    </div>
+                </form>
+            </div>
+>>>>>>> main
         </div>
     <% 
 	

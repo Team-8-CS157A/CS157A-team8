@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/CS157A-team8.iml" filepath="$PROJECT_DIR$/CS157A-team8.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/CS157A-team8.iml" filepath="$PROJECT_DIR$/.idea/CS157A-team8.iml" />
+>>>>>>> main
     </modules>
   </component>
 </project>

@@ -2,12 +2,8 @@ package user;
 
 import java.io.IOException;
 import java.sql.*;
-
-import java.io.*;
-
 import jakarta.servlet.*;             // Tomcat 10
 import jakarta.servlet.http.*;        // Tomcat 10
-import jakarta.servlet.annotation.*;  // Tomcat 10
 
 public class registerSubmit extends HttpServlet {
     public static void submitForm(String name, String username, String password) {
@@ -68,24 +64,15 @@ public class registerSubmit extends HttpServlet {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false", user, password);
             System.out.println(db + " database successfully opened.<br/><br/>");
 
-            // Statement stmt = con.createStatement();
-
             // Check to make sure inputs are valid
             String[] inputs = new String[] { input_name, input_username, input_password };
 
             for (String input : inputs) {
                 if (input == null || input.length() == 0) {
                     System.out.println("Inputs must be filled out");
-                    redirectPage="register.jsp";
-//                    response.sendRedirect("inventory_manager/register.jsp");
-//                    request.getRequestDispatcher("inventory_manager/register.jsp").forward(request, response);
-
-//                    throw new IllegalArgumentException("Inputs must be filled out");
+                    redirectPage="register.jsp";    // If inputs aren't valid send back to register page
                 }
             }
-
-            // SQL Query Execution
-            String queryString = "INSERT INTO Employee (id, name, username, password) VALUES (?, ?, ?, ?)";
 
             // Gets the next Employee ID
             // Auto increment didn't work for me so this will do for now
@@ -95,6 +82,9 @@ public class registerSubmit extends HttpServlet {
             rs.next();
             int nextID = rs.getInt(1) + 1;  // column 1 is ID
             String id = Integer.toString(nextID);
+
+            // SQL INSERT into Employee Query Execution
+            String queryString = "INSERT INTO Employee (id, name, username, password) VALUES (?, ?, ?, ?)";
 
             PreparedStatement pstatement = con.prepareStatement(queryString);
             pstatement.setString(1, id);
@@ -112,34 +102,18 @@ public class registerSubmit extends HttpServlet {
 
             System.out.println("--Adding user to \"Employees\"-- \nName: " + input_name + "\nUsername: " + input_username + "\nPassword: " + input_password);
 
-            con.close();
+            // Upon successful inputs redirect to another page
+//            redirectPage="someSuccessPage.jsp";
 
-            // ResultSet rs = stmt.executeQuery("INSERT INTO Employees (name, username, password) VALUES (?, ?, ?)");
-            // while (rs.next()) {
-            //     System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + "<br/><br/>");
-            //     out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + "<br/><br/>");
-            // }
-            // rs.close();
-            // stmt.close();
+            con.close();
         } catch(SQLException e) {
             System.out.println("SQLException caught: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             System.out.println("ClassNotFoundException caught: " + e.getMessage());
         }
 
+        // Redirect to another page, takes in redirectPage as a variable redirect
         RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
         dd.forward(request, response);
-
-//        if(first_name.isEmpty() || last_name.isEmpty() || username.isEmpty() ||
-//            password.isEmpty() || address.isEmpty() || contact.isEmpty())
-//        {
-//            RequestDispatcher req = request.getRequestDispatcher("register_1.jsp");
-//            req.include(request, response);
-//        }
-//        else
-//        {
-//            RequestDispatcher req = request.getRequestDispatcher("register_2.jsp");
-//            req.forward(request, response);
-//        }
     }
 }

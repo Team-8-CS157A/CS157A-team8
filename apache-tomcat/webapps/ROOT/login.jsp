@@ -5,6 +5,25 @@
       <style><%@include file="/css/login.css"%></style>
     </head>
   <body>
+<<<<<<< HEAD
+    <h1>Inventory Manager</h1>
+	<h2>Login</h2>
+    
+     <div class="login-body">
+            <form action="">
+                <div class="login-input-container">
+                    <label for="">Username</label>
+                    <input placeholder = "username" NAME = "usernameLogin" type="text" />
+                </div>
+                <div class="login-input-container">
+                    <label for="">Password</label>
+                    <input placeholder = "password" NAME = "passwordLogin "type="password" />
+                </div>
+                <div class="login-button-container">
+                    <button>Login</button>
+                </div>
+            </form>
+=======
         <div class="login-header">
             <h1>Inventory Manager</h1>
             <h2>Login</h2>
@@ -23,14 +42,15 @@
                     </div>
                 </form>
             </div>
+>>>>>>> main
         </div>
     <% 
 	
 	// Database info
-		String db = "cs156a_proj";
+		String db = "inventory_manager";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "Panda101";
+        String password = "root";
 	
 	// Gets information from the HTML file above
 	//  int ID = Integer.parseInt(request.getParameter("IDLogin")); // the parse doesn't work for int vars
@@ -46,11 +66,11 @@
 			// Gets database connection + JDBC driver
             java.sql.Connection con; 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs156a_proj?autoReconnect=true&useSSL=false",user, password);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false",user, password);
             out.println(db + " database successfully opened.<br/><br/>");
 			
 			// String SQL insert statement, should correspond to table information in database
-			String queryString = "insert into hw1(SJSU_ID,NAME,MAJOR) values(?,?,?)";
+			String queryString = "insert into Users(SJSU_ID,NAME,MAJOR) values(?,?,?)";
 			pstatement = con.prepareStatement(queryString);
 			
 			// Sets the query info to variables that you get in HTML file

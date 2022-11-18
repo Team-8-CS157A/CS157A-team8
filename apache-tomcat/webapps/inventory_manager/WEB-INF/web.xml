@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"
+         metadata-complete="true">
+
+    <display-name>Welcome to Tomcat</display-name>
+    <description>
+        Welcome to Tomcat
+    </description>
+
+    <!-- NOTE: This should be saved within WEB-INF folder directly as web.xml -->
+    <!-- ACTION: Define the servlet's name as well as its class, including the package location -->
+
+    <servlet>
+        <servlet-name>inventory_manager</servlet-name>
+        <servlet-class>user.registerSubmit</servlet-class>
+    </servlet>
+
+    <!-- ACTION: Define the URL element that will actually call the servlet, which is /sayhello in this case -->
+    <!-- NOTE: All <servlet> elements MUST be grouped together and placed IN FRONT of the <servlet-mapping> elements -->
+
+    <servlet-mapping>
+        <servlet-name>inventory_manager</servlet-name>
+        <url-pattern>/registerSubmit</url-pattern>
+    </servlet-mapping>
+</web-app>

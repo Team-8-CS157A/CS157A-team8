@@ -31,15 +31,35 @@
     <!-- ACTION: Define the servlet's name as well as its class, including the package location -->
 
     <servlet>
-        <servlet-name>inventory_manager</servlet-name>
+        <servlet-name>registerSubmit</servlet-name>
         <servlet-class>user.registerSubmit</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>registerAdmin</servlet-name>
+        <servlet-class>user.registerAdmin</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>registerEmployee</servlet-name>
+        <servlet-class>user.registerEmployee</servlet-class>
     </servlet>
 
     <!-- ACTION: Define the URL element that will actually call the servlet, which is /sayhello in this case -->
     <!-- NOTE: All <servlet> elements MUST be grouped together and placed IN FRONT of the <servlet-mapping> elements -->
 
     <servlet-mapping>
-        <servlet-name>inventory_manager</servlet-name>
+        <servlet-name>registerSubmit</servlet-name>
         <url-pattern>/registerSubmit</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>registerAdmin</servlet-name>
+        <url-pattern>/registerAdmin</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>registerEmployee</servlet-name>
+        <url-pattern>/registerEmployee</url-pattern>
     </servlet-mapping>
 </web-app>

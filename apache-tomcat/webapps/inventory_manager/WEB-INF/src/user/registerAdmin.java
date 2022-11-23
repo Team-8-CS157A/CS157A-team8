@@ -48,15 +48,15 @@ public class registerAdmin extends HttpServlet {
 
             // Close SQL Connection
             con.close();
-
-            // Redirect to another page, takes in redirectPage as a variable redirect
-            RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
-            dd.forward(request, response);
         } catch(SQLException e) {
             System.out.println("SQLException caught: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             System.out.println("ClassNotFoundException caught: " + e.getMessage());
         }
+
+        // Redirect to another page, takes in redirectPage as a variable redirect
+        RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
+        dd.forward(request, response);
     }
 
 }

@@ -39,12 +39,14 @@ public class registerEmployee extends HttpServlet {
             // Check for valid inputs, if not send back to register
             boolean validInputs = usersActions.checkInputs(new String[]{ input_firstName, input_lastName, input_phoneNumber, input_storeID, input_adminID });
             if (!validInputs) {
-                System.out.println("Invalid Inputs for registerEmployee");
                 redirectPage = "registerEmployee.jsp";
-            }
+                System.out.println("Invalid Inputs for registerEmployee");
+            } else {
+                redirectPage = "login.jsp";
 
-            // Insert new Emp User into the "Emp_Users" table
-            usersActions.insertIntoTable(con, "Emp", input_firstName, input_lastName, input_phoneNumber, input_storeID, input_adminID);
+                // Insert new Emp User into the "Emp_Users" table
+                usersActions.insertIntoTable(con, "Emp", input_firstName, input_lastName, input_phoneNumber, input_storeID, input_adminID);
+            }
 
             // Close SQL Connection
             con.close();

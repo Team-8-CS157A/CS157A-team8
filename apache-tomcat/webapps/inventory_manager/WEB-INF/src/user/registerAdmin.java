@@ -37,24 +37,26 @@ public class registerAdmin extends HttpServlet {
             // Check for valid inputs, if not send back to register
             boolean validInputs = usersActions.checkInputs(new String[]{ input_firstName, input_lastName, input_phoneNumber, input_storeID });
             if (!validInputs) {
-                System.out.println("Invalid Inputs for registerAdmin");
                 redirectPage = "registerAdmin.jsp";
-            }
+                System.out.println("Invalid Inputs for registerAdmin");
+            } else {
+                redirectPage = "login.jsp";
 
-            // Insert new Admin User into the "AdminUsers" table
-            usersActions.insertIntoTable(con, "Admin", input_firstName, input_lastName, input_phoneNumber, input_storeID, "");
+                // Insert new Admin User into the "AdminUsers" table
+                usersActions.insertIntoTable(con, "Admin", input_firstName, input_lastName, input_phoneNumber, input_storeID, "");
+            }
 
             // Close SQL Connection
             con.close();
+
+            // Redirect to another page, takes in redirectPage as a variable redirect
+            RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
+            dd.forward(request, response);
         } catch(SQLException e) {
             System.out.println("SQLException caught: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             System.out.println("ClassNotFoundException caught: " + e.getMessage());
         }
-
-        // Redirect to another page, takes in redirectPage as a variable redirect
-        RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
-        dd.forward(request, response);
     }
 
 }

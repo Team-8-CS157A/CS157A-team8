@@ -7,6 +7,19 @@ import java.sql.Statement;
 
 public class usersActions {
 
+    public static boolean checkInputs(String[] inputs) {
+        boolean validInputs = true;
+
+        for (String input : inputs) {
+            if (input.isEmpty() || input == null) {
+                validInputs = false;
+                System.out.println("Detected invalid/empty input");
+            }
+        }
+
+        return validInputs;
+    }
+
     public static void insertIntoTable(java.sql.Connection con, String userEmpAdmin, String firstName, String lastName, String phoneNumber, String storeID, String adminID) {
         try {
             String queryString = "";

@@ -19,37 +19,6 @@ public class registerEmployee extends HttpServlet {
      * adminID
      * */
 
-    public static boolean checkInputs(String firstName, String lastName, String phoneNumber, String storeID, String adminID) {
-        boolean validInputs = true;
-
-        if (firstName.isEmpty() || firstName == null) {
-            validInputs = false;
-            System.out.println("firstName parameter is empty");
-        }
-
-        if (lastName.isEmpty() || lastName == null) {
-            validInputs = false;
-            System.out.println("lastName parameter is empty");
-        }
-
-        if (phoneNumber.isEmpty() || phoneNumber == null) {
-            validInputs = false;
-            System.out.println("phoneNumber parameter is empty");
-        }
-
-        if (storeID.isEmpty() || storeID == null) {
-            validInputs = false;
-            System.out.println("storeID parameter is empty");
-        }
-
-        if (adminID.isEmpty() || adminID == null) {
-            validInputs = false;
-            System.out.println("adminID parameter is empty");
-        }
-
-        return validInputs;
-    }
-
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String input_firstName = request.getParameter("FirstName");
@@ -68,7 +37,7 @@ public class registerEmployee extends HttpServlet {
             System.out.println(dbSetting.db + " database successfully opened.<br/><br/>");
 
             // Check for valid inputs, if not send back to register
-            boolean validInputs = checkInputs(input_firstName, input_lastName, input_phoneNumber, input_storeID, input_adminID);
+            boolean validInputs = usersActions.checkInputs(new String[]{ input_firstName, input_lastName, input_phoneNumber, input_storeID, input_adminID });
             if (!validInputs) {
                 System.out.println("Invalid Inputs for registerEmployee");
                 redirectPage = "registerEmployee.jsp";

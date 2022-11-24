@@ -9,14 +9,18 @@
 	<h2>Login</h2>
     
      <div class="login-body">
-        <form action="${pageContext.request.contextPath}/userActions" method="post">
+        <form action="${pageContext.request.contextPath}/login" method="post">
             <div class="login-input-container">
-                <label for="">Username</label>
-                <input placeholder = "username" NAME = "usernameLogin" type="text" />
+                <label>First Name</label>
+                <input name="FirstName" />
             </div>
             <div class="login-input-container">
-                <label for="">Password</label>
-                <input placeholder = "password" NAME = "passwordLogin "type="password" />
+                <label>Last Name</label>
+                <input name="LastName" />
+            </div>
+            <div class="login-input-container">
+                <label>Phone Number</label>
+                <input name="phoneNumber" />
             </div>
             <div class="login-button-container">
                 <button>Login</button>

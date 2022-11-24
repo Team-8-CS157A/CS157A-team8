@@ -5,11 +5,6 @@
 
 <%
     // If a user is not logged in and tries to go to "home.jsp", redirect to login
-//    String firstName = currentUser.getFirstName();
-//    if (firstName == null) {
-//        response.sendRedirect("login.jsp");
-//    }
-
     String firstName = (String) session.getAttribute("FirstName");
     if (firstName == null) {
         System.out.println("Current user is not logged in and is trying to go to 'Home.jsp'");

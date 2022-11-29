@@ -44,6 +44,9 @@ public class registerAdmin extends HttpServlet {
 
                 // Insert new Admin User into the "AdminUsers" table
                 usersActions.insertIntoTable(con, "Admin", input_firstName, input_lastName, input_phoneNumber, input_storeID, "");
+
+                // Add to relationship table set "Users"
+                usersActions.insertIntoTable(con, "Users", input_firstName, input_lastName, input_phoneNumber, input_storeID, "");
             }
 
             // Close SQL Connection

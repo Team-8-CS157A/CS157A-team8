@@ -30,11 +30,6 @@ public class items extends HttpServlet {
             while (rs.next()) {
                 String[] rowValues = new String[7];
 
-                // ResultSet starts at index 1
-//                for (int i = 1; i <= 7; i++) {
-//                    rowValues[i - 1] = rs.get(i);
-//                }
-
                 /*
                 * "Item" Table Schema
                 *
@@ -46,7 +41,6 @@ public class items extends HttpServlet {
                 * Price         - Double
                 * StockNumber   - Int
                 * */
-
                 rowValues[0] = rs.getString(1);
                 rowValues[1] = rs.getString(2);
                 rowValues[2] = rs.getString(3);
@@ -55,29 +49,12 @@ public class items extends HttpServlet {
                 rowValues[5] = String.valueOf(rs.getDouble(6));
                 rowValues[6] = String.valueOf(rs.getInt(7));
 
-
-
-                System.out.print("Adding row: ");
-                for (int idx = 0; idx < rowValues.length; idx++) {
-                    System.out.println(rowValues[idx]);
-                }
                 items.add(rowValues);
             }
-
-//            System.out.println("@@@@");
-//
-//            for(Object iter : items) {
-//                System.out.print("new iter: ");
-//                System.out.println(iter);
-//            }
 
             con.close();
 
             request.getSession().setAttribute("items", items);
-//            response.setContentType("text/plain"); // sets the content type
-//            response.setCharacterEncoding("UTF-8"); // sets the encoding
-//            response.getWriter().write(items);
-
             request.getRequestDispatcher("/items.jsp").forward(request, response);
         } catch(SQLException e) {
             System.out.println("SQLException caught: " + e.getMessage());

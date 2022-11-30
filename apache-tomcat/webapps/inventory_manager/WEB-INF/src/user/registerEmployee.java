@@ -46,6 +46,9 @@ public class registerEmployee extends HttpServlet {
 
                 // Insert new Emp User into the "Emp_Users" table
                 usersActions.insertIntoTable(con, "Emp", input_firstName, input_lastName, input_phoneNumber, input_storeID, input_adminID);
+
+                // Add to relationship table set "Users"
+                usersActions.insertIntoTable(con, "Users", input_firstName, input_lastName, input_phoneNumber, input_storeID, "");
             }
 
             // Close SQL Connection

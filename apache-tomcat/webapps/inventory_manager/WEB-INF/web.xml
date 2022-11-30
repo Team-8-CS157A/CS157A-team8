@@ -50,6 +50,16 @@
         <servlet-class>user.logout</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>addItem</servlet-name>
+        <servlet-class>item.addItem</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>items</servlet-name>
+        <servlet-class>item.items</servlet-class>
+    </servlet>
+
     <!-- ACTION: Define the URL element that will actually call the servlet, which is /sayhello in this case -->
     <!-- NOTE: All <servlet> elements MUST be grouped together and placed IN FRONT of the <servlet-mapping> elements -->
 
@@ -71,5 +81,15 @@
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>addItem</servlet-name>
+        <url-pattern>/addItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>items</servlet-name>
+        <url-pattern>/items</url-pattern>
     </servlet-mapping>
 </web-app>

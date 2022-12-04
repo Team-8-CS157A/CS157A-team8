@@ -9,5 +9,9 @@
     <a href="items.jsp">
         <h2>Show All Items</h2>
     </a>
+
+    <a href="Home.jsp">
+        <h2>Log Out</h2>
+    </a>
 </body>
 </html>

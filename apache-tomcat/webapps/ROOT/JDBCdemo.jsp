@@ -13,18 +13,18 @@
         <td>Major</td>
    </tr>
     <% 
-     String db = "zhang";
+     String db = "sys";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "Panda101";
+        String password = "@J4wn1033";
         try {
             
             java.sql.Connection con; 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/zhang?autoReconnect=true&useSSL=false",user, password);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys?autoReconnect=true&useSSL=false",user, password);
             out.println(db + " database successfully opened.<br/><br/>");
             
-            out.println("Initial entries in table \"hw1\": <br/>");
+            out.println("Initial entries in table \"HW1\": <br/>");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM hw1");
             while (rs.next()) {

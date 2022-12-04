@@ -30,7 +30,7 @@
 		String db = "inventory_manager";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "root";
+        String password = "@J4wn1033";
 	
 	// Gets information from the HTML file above
 	//  int ID = Integer.parseInt(request.getParameter("IDLogin")); // the parse doesn't work for int vars

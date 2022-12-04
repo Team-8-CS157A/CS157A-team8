@@ -52,10 +52,10 @@
     <% 
 	
 	// Database info
-		String db = "cs156a_proj";
+		String db = "inventory-manager";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "Panda101";
+        String password = "@J4wn1033";
 	
 	// Gets information from the HTML file above
 	//	int userID = Integer.parseInt(request.getParameter("adminIDempR")); // the parse doesn't work for int vars
@@ -76,7 +76,7 @@
 			// Gets database connection + JDBC driver
             java.sql.Connection con; 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs156a_proj?autoReconnect=true&useSSL=false",user, password);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory-manager?autoReconnect=true&useSSL=false",user, password);
             out.println(db + " database successfully opened.<br/><br/>");
 			
 			// String SQL insert statement, should correspond to table information in database

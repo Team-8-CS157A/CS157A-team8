@@ -9,5 +9,9 @@
     <a href="add_item.jsp">
         <h2>Add Item</h2>
     </a>
+
+    <a href="items.jsp">
+        <h2>Show All Items</h2>
+    </a>
 </body>
 </html>

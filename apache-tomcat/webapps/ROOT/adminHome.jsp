@@ -10,7 +10,7 @@
         <h2>Add Item</h2>
     </a>
 
-    <a href="items.jsp">
+    <a href="itemsAdmin.jsp">
         <h2>Show All Items</h2>
     </a>
 

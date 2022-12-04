@@ -1,16 +1,24 @@
 <%@ page import="java.sql.*"%>
 <html>
 <head>
-    <title>Items Page</title>
+    <title>Individual Item Page</title>
     <style><%@include file="/css/items.css"%></style>
     <style><%@include file="/css/add.css"%></style>
 </head>
+
 <body>
+    <input type="hidden" name="name" value="${name}">
+
     <h1>Inventory Manager Application</h1>
 
-    <table id="itemsTable" style="width: 50%">
+    <table id="itemsTable" style="width: 100%">
         <tr>
             <td>Name</td>
+            <td>Serving Size</td>
+            <td>Calories</td>
+            <td>Sugar</td>
+            <td>Color</td>
+            <td>Price</td>
             <td>Stock Number</td>
         </tr>
 
@@ -21,6 +29,8 @@
             user = "root";
             String password = "root";
 
+            String name = request.getParameter("name");
+
             try {
 
                 // Gets database connection + JDBC driver
@@ -29,26 +39,28 @@
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false",user, password);
 
                 // Teacher's code to print out enteries in database
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM Item");
+                String selectQuery = "SELECT * FROM Item WHERE name = ?";
+                PreparedStatement pstatement = con.prepareStatement(selectQuery);
+                pstatement.setString(1, name);
+                ResultSet rs = pstatement.executeQuery();
                 while (rs.next()) {
                     // HTML code is within the while loop below
                     // SQL errors when having rs.getInt() or rs.getDouble()
                     // so I used rs.getString() instead, displays fine
         %>
-                    <tr>
-                        <td> <%-- Name --%>
-                            <a href="item.jsp?name=<%=rs.getString(7)%>">
-                                <%= rs.getString(7) %>
-                            </a>
-                        </td>
-                        <td> <%= rs.getString(6) %> </td> <%-- Stock Num --%>
-                    </tr>
+        <tr>
+            <td> <%= rs.getString(7) %> </td>
+            <td> <%= rs.getString(1) %> </td>
+            <td> <%= rs.getString(2) %> </td>
+            <td> <%= rs.getString(3) %> </td>
+            <td> <%= rs.getString(4) %> </td>
+            <td> <%= rs.getString(5) %> </td>
+            <td> <%= rs.getString(6) %> </td>
+        </tr>
         <%
                 }
 
                 rs.close();
-                stmt.close();
                 con.close();
             } catch(SQLException e) {
                 out.println("SQLException caught: " + e.getMessage());
@@ -58,10 +70,11 @@
     </table>
 
     <div class="add-button-container">
-        <a href="empHome.jsp">
-            <button>Back Home</button>
+        <a href="itemsAdmin.jsp">
+            <button>Back To Items</button>
         </a>
     </div>
 
 </body>
+
 </html>

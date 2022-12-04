@@ -6,7 +6,7 @@
 <body>
     <h1>Employee Home</h1>
 
-    <a href="items.jsp">
+    <a href="itemEmp.jsp">
         <h2>Show All Items</h2>
     </a>
 

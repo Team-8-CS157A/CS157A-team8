@@ -16,12 +16,13 @@
     String password = "@J4wn1033";
 
     // Gets information from the HTML file above
-    String firstName = request.getParameter("firstNameReg");
-    String lastName = request.getParameter("lastNameReg");
-    String phoneNum = request.getParameter("phoneNumReg");
+    String firstName = request.getParameter("firstNameempR");
+    String lastName = request.getParameter("lastNameempR");
+    String phoneNum = request.getParameter("phoneNumempR");
     Random randID = new Random();       // generate random number up to 1000
-    int adminID = randID.nextInt(1000); // use randID to generate random adminID
+    int userID = randID.nextInt(1000); // use randID to generate random adminID
     int storeID = Integer.parseInt(request.getParameter("store"));
+    int adminID = Integer.parseInt(request.getParameter("admin"));
 
     // Stuff in order to insert
     PreparedStatement pstatement = null;
@@ -36,15 +37,16 @@
         out.println(db + " database successfully opened.<br/><br/>");
 
         // String SQL insert statement, should correspond to table information in database
-        String queryStringAdminTable = "insert into adminusers(AdminID,FirstName,LastName,phoneNumber, storeID) values(?,?,?,?,?)";
-        pstatement = con.prepareStatement(queryStringAdminTable);
+        String queryStringEmpTable = "insert into emp_users(empUserID,FirstName,LastName,phoneNumber,storeID, adminID) values(?,?,?,?,?,?)";
+        pstatement = con.prepareStatement(queryStringEmpTable);
         // Sets the query info to variables that you get in HTML file
 
-        pstatement.setInt(1, adminID);
+        pstatement.setInt(1, userID);
         pstatement.setString(2, firstName);
         pstatement.setString(3, lastName);
         pstatement.setString(4, phoneNum);
         pstatement.setInt(5, storeID);
+        pstatement.setInt(6, adminID);
         updateQuery = pstatement.executeUpdate();
 
 
@@ -58,11 +60,11 @@
 %>
 <div class="reg-header">
     <h1>Inventory Manager</h1>
-    <h2>Thank you for registering as an administrator,<br>
+    <h2>Thank you for registering as an employee,<br>
         <%out.println(firstName + " " + lastName + "!");%>
     </h2>
-    <h3>Your Admin ID:
-        <%out.println(adminID); %>
+    <h3>Your Employee ID:
+        <%out.println(userID); %>
     </h3>
     <div class="reg-button-container">
         <button>
@@ -72,7 +74,7 @@
 
 </div>
 <%
-//        rs.close();
+        //        rs.close();
 //        stmt.close();
         con.close();
     } catch(SQLException e) {

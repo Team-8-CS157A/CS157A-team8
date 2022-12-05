@@ -5,7 +5,10 @@
   <head>
     <title>Inventory Manager</title>
     <style><%@include file="/css/register.css"%></style>
-    </head>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </head>
   <body>
   <%
 
@@ -13,7 +16,7 @@
       String db = "inventory_manager";
       String user; // assumes database name is the same as username
       user = "root";
-      String password = "@J4wn1033";
+      String password = "root";
 
       // Gets information from the HTML file above
       String firstName = request.getParameter("firstNameReg");
@@ -34,7 +37,7 @@
           java.sql.Connection con;
           Class.forName("com.mysql.jdbc.Driver");
           con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false",user, password);
-          out.println(db + " database successfully opened.<br/><br/>");
+//          out.println(db + " database successfully opened.<br/><br/>");
 
           // String SQL insert statement, should correspond to table information in database
           String queryStringAdminTable = "insert into adminusers(AdminID,FirstName,LastName,phoneNumber, storeID) values(?,?,?,?,?)";
@@ -42,15 +45,15 @@
           // Sets the query info to variables that you get in HTML file
 
           // Teacher's code to print out enteries in database
-          out.println("Initial entries in table \"adminusers\": <br/>");
+//          out.println("Initial entries in table \"adminusers\": <br/>");
           Statement stmt = con.createStatement();
           Statement storeStmt = con.createStatement();
           ResultSet rs = stmt.executeQuery("SELECT * FROM adminusers;");
           ResultSet storeRS = storeStmt.executeQuery("Select * FROM store;");
-          while (rs.next()) {
-              out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " +
-                      rs.getString(4) + " " + rs.getInt(5) + "<br/><br/>");
-          }
+//          while (rs.next()) {
+//              out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " +
+//                      rs.getString(4) + " " + rs.getInt(5) + "<br/><br/>");
+//          }
 
   %>
     <div class="reg-header">

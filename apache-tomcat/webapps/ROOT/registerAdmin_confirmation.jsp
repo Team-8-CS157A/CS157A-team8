@@ -5,6 +5,9 @@
 <head>
     <title>Inventory Manager</title>
     <style><%@include file="/css/register.css"%></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <%
@@ -13,7 +16,7 @@
     String db = "inventory_manager";
     String user; // assumes database name is the same as username
     user = "root";
-    String password = "@J4wn1033";
+    String password = "root";
 
     // Gets information from the HTML file above
     String firstName = request.getParameter("firstNameReg");

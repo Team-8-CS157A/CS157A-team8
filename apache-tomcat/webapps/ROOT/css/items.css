@@ -17,7 +17,32 @@ h1{
 h2, p {
     text-align: center;
 }
-
+table {
+    max-width: 70%;
+}
 table, th, td {
+    margin: 0 auto;
     border: 1px solid black;
+    border-collapse: collapse;
+    background: rgba(225, 225, 225, 0.27);
+    font-weight: bold;
+    padding: 8px;
+    color: #3d3d3d;
+}
+table a {
+    text-decoration: none;
+}
+table a:hover {
+    color: #6a994e;
+    transition: 0.4s;
+}
+ th {
+    width: 25%;
+}
+
+
+.add-button-container button:hover {
+    cursor: pointer;
+    transition: 0.4s;
+    background-color: #6a994e;
 }

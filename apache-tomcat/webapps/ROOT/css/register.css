@@ -81,6 +81,7 @@ div.reg-input-container input::placeholder {
 div.reg-button-container {
     margin-top: 40px;
     text-align: center;
+    text-decoration:none;
 }
 
 div.reg-button-container button {
@@ -94,4 +95,11 @@ div.reg-button-container button {
 
 div.reg-button-container button:hover {
     cursor: pointer;
+    transition: 0.4s;
+    background-color: #6a994e;
+}
+
+.reg-button-container a {
+    text-decoration:none;
+    color:white;
 }

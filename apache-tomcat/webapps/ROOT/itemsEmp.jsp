@@ -19,7 +19,7 @@
             String db = "inventory_manager";
             String user; // assumes database name is the same as username
             user = "root";
-            String password = "root";
+            String password = "@J4wn1033";
 
             try {
 
@@ -38,11 +38,11 @@
         %>
                     <tr>
                         <td> <%-- Name --%>
-                            <a href="item.jsp?name=<%=rs.getString(7)%>">
-                                <%= rs.getString(7) %>
+                            <a href="item.jsp?name=<%=rs.getString(1)%>">
+                                <%= rs.getString(1) %>
                             </a>
                         </td>
-                        <td> <%= rs.getString(6) %> </td> <%-- Stock Num --%>
+                        <td> <%= rs.getString(7) %> </td> <%-- Stock Num --%>
                     </tr>
         <%
                 }

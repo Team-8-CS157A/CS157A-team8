@@ -1,6 +1,7 @@
 * {
     font-family: 'Poppins', sans-serif;
 }
+
 body {
     background: url('../images/background1.jpg') no-repeat center center;
     background-size: cover;
@@ -88,4 +89,6 @@ div.login-button-container button {
 
 div.login-button-container button:hover {
     cursor: pointer;
+    transition: 0.4s;
+    background-color: #6a994e;
 }

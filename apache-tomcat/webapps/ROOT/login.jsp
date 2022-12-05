@@ -1,10 +1,13 @@
 <%@ page import="java.sql.*"%>
-<%@ page import="jakarta.servlet.RequestDispatcher" %>
+<%@ page import="jakarta.servlet.*" %>
 <html>
   <head>
     <title>Inventory Manager</title>
       <style><%@include file="/css/login.css"%></style>
-    </head>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </head>
   <body>
         <div class="login-header">
             <h1>Inventory Manager</h1>
@@ -87,7 +90,7 @@
                 RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
                 dd.forward(request, response);
             } else {
-                System.out.println("User with these credentials does not exist!");
+                out.println("User with these credentials does not exist!");
             }
 
             con.close();

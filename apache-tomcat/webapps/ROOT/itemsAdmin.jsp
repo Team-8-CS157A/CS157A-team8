@@ -4,19 +4,22 @@
     <title>Items Page</title>
     <style><%@include file="/css/items.css"%></style>
     <style><%@include file="/css/add.css"%></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Inventory Manager Application</h1>
 
     <table id="itemsTable" style="width: 50%">
         <tr>
-            <td>Name</td>
+            <th>Name</th>
 <%--            <td>Serving Size</td>--%>
 <%--            <td>Calories</td>--%>
 <%--            <td>Sugar</td>--%>
 <%--            <td>Color</td>--%>
 <%--            <td>Price</td>--%>
-            <td>Stock Number</td>
+            <th>Stock Number</th>
         </tr>
 
         <%
@@ -43,11 +46,11 @@
         %>
                     <tr>
                         <td> <%-- Name --%>
-                            <a href="item.jsp?name=<%=rs.getString(7)%>">
-                                <%= rs.getString(7) %>
+                            <a href="item.jsp?name=<%=rs.getString(1)%>">
+                                <%= rs.getString(1) %>
                             </a>
                         </td>
-                        <td> <%= rs.getString(6) %> </td> <%-- Stock Num --%>
+                        <td> <%= rs.getString(7) %> </td> <%-- Stock Num --%>
                     </tr>
         <%
                 }

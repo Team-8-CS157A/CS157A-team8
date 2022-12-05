@@ -1,0 +1,23 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url('../images/background1.jpg') no-repeat center center;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    /* backdrop-filter: brightness(60%); */
+}
+
+h1{
+    text-align: center;
+    color: #386641;
+}
+
+h2, p {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+}

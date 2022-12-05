@@ -11,5 +11,5 @@ public final class dbSetting {
     // Edit these to whatever your things are :)
     public static final String db = "inventory_manager";
     public static final String user = "root";
-    public static final String password = "root";
+    public static final String password = "@J4wn1033";
 }

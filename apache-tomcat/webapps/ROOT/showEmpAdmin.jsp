@@ -6,20 +6,21 @@
     <style><%@include file="/css/add.css"%></style>
 </head>
 <body>
-    <h1>Inventory Manager Application</h1>
+    <h1>Inventory Manager</h1>
+    <h2> Employees</h2>
 
     <table id="itemsTable" style="width: 50%">
-        <tr>
-            <td>Name</td>
-            <td>Stock Number</td>
-        </tr>
+        <thead>
+            <td>Full Name</td>
+            <td>Phone Number</td>
+        </thead>
 
         <%
             // Database info
             String db = "inventory_manager";
             String user; // assumes database name is the same as username
             user = "root";
-            String password = "Panda101";
+            String password = "rootpass";
 
             try {
 
@@ -30,19 +31,15 @@
 
                 // Teacher's code to print out enteries in database
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM Item");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM Emp_Users");
                 while (rs.next()) {
                     // HTML code is within the while loop below
                     // SQL errors when having rs.getInt() or rs.getDouble()
                     // so I used rs.getString() instead, displays fine
         %>
                     <tr>
-                        <td> <%-- Name --%>
-                            <a href="item.jsp?name=<%=rs.getString(1)%>">
-                                <%= rs.getString(1) %>
-                            </a>
-                        </td>
-                        <td> <%= rs.getString(7) %> </td> <%-- Stock Num --%>
+                        <td> <%= rs.getString(2) + " " + rs.getString(3)%></td> <%-- First and last name --%>
+                        <td> <%= rs.getString(4) %> </td> <%-- Phone Num --%>
                     </tr>
         <%
                 }

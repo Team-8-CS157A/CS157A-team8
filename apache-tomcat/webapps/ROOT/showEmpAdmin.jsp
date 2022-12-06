@@ -22,6 +22,8 @@
             user = "root";
             String password = "rootpass";
 
+            String firstName = request.getParameter("FirstName");
+            String lastName = request.getParameter("LastName");
             String adminID = request.getParameter("AdminID");
 
             try {
@@ -57,8 +59,8 @@
     </table>
 
     <div class="add-button-container">
-        <a href="empHome.jsp">
-            <button>Back Home</button>
+        <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
+            <button>Back to Admin Home</button>
         </a>
     </div>
 

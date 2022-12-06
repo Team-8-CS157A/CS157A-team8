@@ -44,15 +44,15 @@
         <h2>Show All Items</h2>
     </a>
 	
-    <a href="update_inventory.jsp">
+    <a href="update_inventory.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Update Inventory</h2>
     </a>
 
-    <a href="remove_item.jsp">
+    <a href="remove_item.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Remove Item</h2>
     </a>
 	
-	<a href="sortCatAdm.jsp">
+	<a href="sortCatAdm.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Sort by Catagory</h2>
     </a>
 	
@@ -60,11 +60,11 @@
         <h2>Show Employees</h2>
     </a>
 
-	<a href="add_manufactors.jsp">
+	<a href="add_manufactors.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Add Manufactors</h2>
     </a>
 	
-	<a href="add_store.jsp">
+	<a href="add_store.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Add Store</h2>
     </a>
 

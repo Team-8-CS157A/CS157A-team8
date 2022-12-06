@@ -31,6 +31,16 @@
                         <button>Add Store</button>
                     </div>
                 </form>
+
+                <div class="add-button-container">
+                    <%
+                        String firstName = request.getParameter("FirstName");
+                        String lastName = request.getParameter("LastName");
+                    %>
+                    <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
+                        Back to Admin Home
+                    </a>
+                </div>
         </div>
     </div>
     <% 

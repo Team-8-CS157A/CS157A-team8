@@ -40,6 +40,9 @@
              user = "root";
              String password = "rootpass";
 
+             String firstName = request.getParameter("FirstName");
+             String lastName = request.getParameter("LastName");
+
              try {
 
                  // Gets database connection + JDBC driver
@@ -103,7 +106,7 @@
     </div>
 
     <div class="add-button-container">
-        <a href="adminHome.jsp">
+        <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <button>Back to Admin Home</button>
         </a>
     </div>

@@ -39,6 +39,9 @@
         String user; // assumes database name is the same as username
           user = "root";
         String password = "Panda101";
+
+        String firstName = request.getParameter("FirstName");
+        String lastName = request.getParameter("LastName");
 	
 	// Gets information from the HTML file above
 	//	int storeInventoryID = Integer.parseInt(request.getParameter("adminIDReg")); // the parse doesn't work for int vars
@@ -93,7 +96,7 @@
         }
     %>
 	  <div class="add-button-container">
-        <a href="adminHome.jsp">
+        <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <button>Back Home</button>
         </a>
     </div>

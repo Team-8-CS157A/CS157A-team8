@@ -15,9 +15,6 @@
     user = "root";
     String password = "rootpass";
 
-    PreparedStatement pstatement = null;
-    int updateQuery = 0;
-
     try {
         // Gets database connection + JDBC driver
         java.sql.Connection con;
@@ -26,6 +23,11 @@
 
         String firstName = request.getParameter("FirstName");
         String lastName = request.getParameter("LastName");
+
+        PreparedStatement pstatement = con.prepareStatement("SELECT AdminID from AdminUsers WHERE FirstName=" + firstName + " AND LastName=" + lastName + ";");
+        ResultSet rs = pstatement.executeQuery();
+        rs.next();
+        int adminID = rs.getInt(1);
 %>
     <%-- Might remove later because it re-renders as "null null"
     after returning from add_item.jsp or itemsAdmin.jsp --%>
@@ -54,7 +56,7 @@
         <h2>Sort by Catagory</h2>
     </a>
 	
-	<a href="showEmpAdmin.jsp">
+	<a href="showEmpAdmin.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>&AdminID=<%=adminID%>">
         <h2>Show Employees</h2>
     </a>
 

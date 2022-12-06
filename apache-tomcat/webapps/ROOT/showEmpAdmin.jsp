@@ -22,6 +22,8 @@
             user = "root";
             String password = "rootpass";
 
+            String adminID = request.getParameter("AdminID");
+
             try {
 
                 // Gets database connection + JDBC driver
@@ -31,7 +33,7 @@
 
                 // Teacher's code to print out enteries in database
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM Emp_Users");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM Emp_Users WHERE adminID=" + adminID + ";");
                 while (rs.next()) {
                     // HTML code is within the while loop below
                     // SQL errors when having rs.getInt() or rs.getDouble()

@@ -76,7 +76,16 @@
     </table>
 
     <div class="add-button-container">
-        <a href="itemsAdmin.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
+        <%
+            String userType = request.getParameter("Type");
+            String linkStart;
+            if (userType.equals("Admin")) {
+                linkStart = "itemsAdmin.jsp";
+            } else {
+                linkStart = "itemsEmp.jsp";
+            }
+        %>
+        <a href="<%=linkStart%>?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <button>Back To Items</button>
         </a>
     </div>

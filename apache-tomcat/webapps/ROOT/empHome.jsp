@@ -20,7 +20,7 @@
         <h2>Show All Items</h2>
     </a>
 	
-	<a href="sortCatEmp.jsp">
+	<a href="sortCatEmp.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Sort by Category</h2>
     </a>
 

@@ -41,7 +41,7 @@
         %>
                     <tr>
                         <td> <%-- Name --%>
-                            <a href="item.jsp?name=<%=rs.getString(1)%>&FirstName=<%=firstName%>&LastName=<%=lastName%>">
+                            <a href="item.jsp?name=<%=rs.getString(1)%>&FirstName=<%=firstName%>&LastName=<%=lastName%>&Type=Emp">
                                 <%= rs.getString(1) %>
                             </a>
                         </td>
@@ -62,7 +62,7 @@
 
     <div class="add-button-container">
         <a href="empHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
-            <button>Back Home</button>
+            <button>Back to Employee Home</button>
         </a>
     </div>
 

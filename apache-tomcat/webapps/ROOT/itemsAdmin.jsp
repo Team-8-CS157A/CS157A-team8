@@ -44,7 +44,7 @@
         %>
                     <tr>
                         <td> <%-- Name --%>
-                            <a href="item.jsp?name=<%=rs.getString(1)%>&FirstName=<%=firstName%>&LastName=<%=lastName%>">
+                            <a href="item.jsp?name=<%=rs.getString(1)%>&FirstName=<%=firstName%>&LastName=<%=lastName%>&Type=Admin">
                                 <%= rs.getString(1) %>
                             </a>
                         </td>

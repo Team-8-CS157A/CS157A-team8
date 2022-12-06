@@ -24,7 +24,7 @@
         String firstName = request.getParameter("FirstName");
         String lastName = request.getParameter("LastName");
 
-        PreparedStatement pstatement = con.prepareStatement("SELECT AdminID from AdminUsers WHERE FirstName=" + firstName + " AND LastName=" + lastName + ";");
+        PreparedStatement pstatement = con.prepareStatement("SELECT AdminID from AdminUsers WHERE FirstName = '" + firstName + "' AND LastName = '" + lastName + "';");
         ResultSet rs = pstatement.executeQuery();
         rs.next();
         int adminID = rs.getInt(1);

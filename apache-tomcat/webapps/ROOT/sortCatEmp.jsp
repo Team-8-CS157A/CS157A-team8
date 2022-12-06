@@ -107,7 +107,7 @@
 
 <div class="add-button-container">
     <a href="empHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
-        <button>Back to Admin Home</button>
+        <button>Back to Employee Home</button>
     </a>
 </div>
 

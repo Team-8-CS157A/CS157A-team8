@@ -5,6 +5,9 @@
 <head>
     <title>Inventory Manager</title>
     <style><%@include file="/css/register.css"%></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <%
@@ -13,7 +16,7 @@
     String db = "inventory_manager";
     String user; // assumes database name is the same as username
     user = "root";
-    String password = "@J4wn1033";
+    String password = "rootpass";
 
     // Gets information from the HTML file above
     String firstName = request.getParameter("firstNameempR");
@@ -26,6 +29,8 @@
 
     // Stuff in order to insert
     PreparedStatement pstatement = null;
+    PreparedStatement usersPstatement = null;
+
     int updateQuery = 0;
 
     try {
@@ -38,7 +43,10 @@
 
         // String SQL insert statement, should correspond to table information in database
         String queryStringEmpTable = "insert into emp_users(empUserID,FirstName,LastName,phoneNumber,storeID, adminID) values(?,?,?,?,?,?)";
+        String queryStringUsersTable = "insert into Users(userID,FirstName,LastName,phoneNumber, storeID) values(?,?,?,?,?)";
+
         pstatement = con.prepareStatement(queryStringEmpTable);
+        usersPstatement = con.prepareStatement(queryStringUsersTable);
         // Sets the query info to variables that you get in HTML file
 
         pstatement.setInt(1, userID);
@@ -47,7 +55,16 @@
         pstatement.setString(4, phoneNum);
         pstatement.setInt(5, storeID);
         pstatement.setInt(6, adminID);
+
+        usersPstatement.setInt(1, userID);
+        usersPstatement.setString(2, firstName);
+        usersPstatement.setString(3, lastName);
+        usersPstatement.setString(4, phoneNum);
+        usersPstatement.setInt(5, storeID);
+
         updateQuery = pstatement.executeUpdate();
+        updateQuery = usersPstatement.executeUpdate();
+
 
 
         // Teacher's code to print out enteries in database

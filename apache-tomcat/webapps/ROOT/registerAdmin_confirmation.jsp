@@ -16,7 +16,7 @@
     String db = "inventory_manager";
     String user; // assumes database name is the same as username
     user = "root";
-    String password = "root";
+    String password = "rootpass";
 
     // Gets information from the HTML file above
     String firstName = request.getParameter("firstNameReg");
@@ -64,16 +64,6 @@
         updateQuery = pstatement.executeUpdate();
         updateQuery = usersPstatement.executeUpdate();
 
-
-
-
-
-        // Teacher's code to print out enteries in database
-//        out.println("Initial entries in table \"adminusers\": <br/>");
-//        Statement stmt = con.createStatement();
-//        Statement storeStmt = con.createStatement();
-//        ResultSet rs = stmt.executeQuery("SELECT * FROM adminusers;");
-//        ResultSet storeRS = storeStmt.executeQuery("Select * FROM store;");
 
 %>
 <div class="reg-header">

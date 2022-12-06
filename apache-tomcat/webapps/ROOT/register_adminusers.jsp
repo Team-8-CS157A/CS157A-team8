@@ -18,20 +18,6 @@
       user = "root";
       String password = "rootpass";
 
-    // Gets information from the HTML file above
-    String firstName = request.getParameter("firstNameReg");
-    String lastName = request.getParameter("lastNameReg");
-    String username = request.getParameter("usernameReg");
-    String pswd = request.getParameter("passwordReg");
-    Random randID = new Random();       // generate random number up to 1000
-    int adminID = randID.nextInt(1000); // use randID to generate random adminID
-    String phoneNum = request.getParameter("phoneNumReg");
-
-    // Stuff in order to insert
-    PreparedStatement pstatement = null;
-    PreparedStatement usersPstatement = null;
-    int updateQuery = 0;
-
     try {
 
           // Gets database connection + JDBC driver
@@ -40,24 +26,8 @@
           con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false",user, password);
 //          out.println(db + " database successfully opened.<br/><br/>");
 
-        // String SQL insert statement, should correspond to table information in database
-        String queryStringAdminTable = "insert into adminusers(AdminID,FirstName,LastName,phoneNumber, storeID) values(?,?,?,?,?)";
-        String queryStringUsersTable = "insert into Users(userID,FirstName,LastName,phoneNumber, storeID) values(?,?,?,?,?)";
-        pstatement = con.prepareStatement(queryStringAdminTable);
-        usersPstatement = con.prepareStatement(queryStringUsersTable);
-        // Sets the query info to variables that you get in HTML file
-
-          // Teacher's code to print out enteries in database
-//          out.println("Initial entries in table \"adminusers\": <br/>");
-          Statement stmt = con.createStatement();
           Statement storeStmt = con.createStatement();
-          ResultSet rs = stmt.executeQuery("SELECT * FROM adminusers;");
           ResultSet storeRS = storeStmt.executeQuery("Select * FROM store;");
-
-//          while (rs.next()) {
-//              out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " +
-//                      rs.getString(4) + " " + rs.getInt(5) + "<br/><br/>");
-//          }
 
 %>
 <div class="reg-header">
@@ -82,7 +52,7 @@
                 <label for="">Store Name</label>
                 <%--                        <input  placeholder = "Store ID" NAME = "storeIDReg "type="int" />--%>
                 <select NAME="store">
-                    <option selected disabled>Choose Store Name</option>
+                    <option selected disabled value="">Choose Store Name</option>
                     <%
                         while(storeRS.next()) {
                             String storeName = storeRS.getString("name");
@@ -104,13 +74,13 @@
         </form>
     </div>
 </div>
-<%
-        rs.close();
-        stmt.close();
-        con.close();
-    } catch(SQLException e) {
-        out.println("SQLException caught: " + e.getMessage());
-    }
-%>
+  <%
+          storeRS.close();
+//          stmt.close();
+          con.close();
+      } catch(SQLException e) {
+          out.println("SQLException caught: " + e.getMessage());
+      }
+  %>
 </body>
 </html>

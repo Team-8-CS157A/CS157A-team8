@@ -1,21 +1,20 @@
 <%@ page import="java.sql.*"%>
+<%@page import="java.util.*" %>
+
 <html>
   <head>
     <title>Inventory Manager</title>
     <style><%@include file="/css/add.css"%></style>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="add-header">
         <h1>Inventory Manager</h1>
         <h2>Add Manufacturer</h2>
-        <p>Note: should only b accessible from admin page</p>
-    
         <div class="add-body">
                 <form action="">
-					<div class="add-input-container">
-                        <label for="">Manufacturer ID</label>
-                        <input placeholder = "Manufacturer ID" NAME = "manuID-AM" type="int" />
-                    </div>
                     <div class="add-input-container">
                         <label for="">Manufacturer Name</label>
                         <input placeholder = "Name" NAME = "manuName-AM" type="text" />
@@ -36,17 +35,23 @@
 		String db = "inventory_manager";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "Panda101";
+        String password = "rootpass";
 	
 	// Gets information from the HTML file above
 	//	int manuID = Integer.parseInt(request.getParameter("adminIDReg")); // the parse doesn't work for int var
 		String manuName = request.getParameter("manuName-AM");
 		String manuAddress = request.getParameter("manuAddress-AM");
-
-	// Stuff in order to insert
+        Random randID = new Random();       // generate random number up to 1000
+        int manuID = randID.nextInt(1000);
+        // Stuff in order to insert
 		PreparedStatement pstatement = null;
 		int updateQuery = 0;
-		
+
+        // Prevent below code from running on page render
+        if (manuName == null) {
+            return;
+        }
+
         try {
             
 			// Gets database connection + JDBC driver
@@ -61,7 +66,7 @@
 			
 			// Sets the query info to variables that you get in HTML file			
 			
-			pstatement.setInt(1, 1542); 		// manuID field test
+			pstatement.setInt(1, manuID); 		// manuID field test
 		//	pstatement.setString(1, adminID);
 		
 			pstatement.setString(2, manuName);
@@ -70,14 +75,14 @@
 			updateQuery = pstatement.executeUpdate();
             
 			// Teacher's code to print out enteries in database 
-            out.println("Initial entries in table \"manufacturer\": <br/>");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM manufacturer");
-            while (rs.next()) {
-                out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + "<br/><br/>");
-            }
-            rs.close();
-            stmt.close();
+//            out.println("Initial entries in table \"manufacturer\": <br/>");
+//            Statement stmt = con.createStatement();
+//            ResultSet rs = stmt.executeQuery("SELECT * FROM manufacturer");
+//            while (rs.next()) {
+//                out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + "<br/><br/>");
+//            }
+//            rs.close();
+//            stmt.close();
             con.close();
         } catch(SQLException e) { 
             out.println("SQLException caught: " + e.getMessage()); 

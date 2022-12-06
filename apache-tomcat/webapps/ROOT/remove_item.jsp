@@ -3,25 +3,31 @@
 <head>
     <title>Items Page</title>
     <style><%@include file="/css/items.css"%></style>
-	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="add-body">
+  <div class="item-body">
 	<h1>Inventory Manager Application</h1>
 	<h2>Remove Item</h2>
 	
         <form action="">
-            <div class="add-input-container">
+            <div class="item-input-container">
                 <label for="">Item name to Delete</label>
                 <input name="name" type="text" />
             </div>
-			  <div class="add-button-container">
+			  <div class="item-button-container">
                 <button>Delete Item</button>
             </div>
         </form>
 		
-		<div class="add-button-container">
-			<a href="adminHome.jsp">
+		<div class="item-button-container">
+			<%
+				String firstName = request.getParameter("FirstName");
+				String lastName = request.getParameter("LastName");
+			%>
+			<a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
 				<button>Back to Admin Home</button>
 			</a>
 		</div>
@@ -32,7 +38,7 @@
             String db = "inventory_manager";
             String user; // assumes database name is the same as username
             user = "root";
-            String password = "Panda101";
+            String password = "rootpass";
 			
 			String name = request.getParameter("name");
 
@@ -55,7 +61,7 @@
 				ResultSet rs = checkForExistingItem.executeQuery();
 				rs.next();
 				if (rs.getInt(1) < 1) {
-					System.out.println("Item does not exists!");
+					out.println("Item does not exists!");
 					return;
 				}
 				
@@ -67,11 +73,10 @@
 					int queryResult = deleteStatement.executeUpdate();
 					
 					if (queryResult != 0) {
-						System.out.println("Successfully deleted item: " + name);
+						out.println("Successfully deleted item: " + name);
 
 						String redirectPage = "remove_item.jsp";
-						RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
-						dd.forward(request, response);
+						response.sendRedirect(redirectPage);
 					}
 				}
 				

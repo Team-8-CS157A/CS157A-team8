@@ -57,7 +57,7 @@ div.add-input-container {
     margin-top: 30px;
 }
 
-div.-input-container label {
+div.add-input-container label {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: bold;

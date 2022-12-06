@@ -11,8 +11,9 @@
  
  <body>
 	<div class="update-inventory-body">
-	<h1>Please fill in all required* fields, then fill in the fields you would like to update</h1>
+	<h1>Update Inventory</h1>
         <form action="">
+		<h3>Please fill in all required* fields, then fill in the fields you would like to update</h3>
 			<div class="update-inventory-input-container">
                 <label for="">StoreInventoryID</label>
                 <input placeholder = "Required*" NAME = "storeInventoryID" type="int" />
@@ -28,8 +29,16 @@
 			<div class="update-inventory-input-container">
                 <label for="">Store ID</label>
                 <input  placeholder = "Required*" NAME = "storeID"type="int" />
-            </div>    
+            </div>   
+			<div class="add-button-container">
+                <button>Update Inventory</button>
+            </div>			
         </form>
+		<div class="add-button-container">
+			<a href="adminHome.jsp">
+				<button>Back to Admin Home</button>
+			</a>
+		</div>
     </div>
     <% 
 	
@@ -38,14 +47,11 @@
         String user; // assumes database name is the same as username
           user = "root";
         String password = "Panda101";
-
-        String firstName = request.getParameter("FirstName");
-        String lastName = request.getParameter("LastName");
 	
 	// Gets information from the HTML file above
        String storeID = request.getParameter("storeID");
        String itemsStocked = request.getParameter("itemsStocked");
-	   String inventoryStock = request.getParameter("inventoryStock");
+	   String inventoryStocked = request.getParameter("inventoryStock");
 	   
 	   
 	// Stuff in order to insert
@@ -71,29 +77,22 @@
 				PreparedStatement statement = con.prepareStatement(queryString);
 				statement.setString(1, itemsStocked);
 				statement.setInt(2, Integer.parseInt(request.getParameter("storeInventoryID")));
-				statement.executeQuery();
+				statement.executeUpdate();
+			
 			}
-			if (inventoryStock != null){
-				queryString = "update inventory set inventoryStock = ? WHERE storeInventoryID = ?";
-				PreparedStatement gstatement = con.prepareStatement(queryString);
-				gstatement.setInt(1, Integer.parseInt(request.getParameter("inventoryStock")));
-				gstatement.setInt(2, Integer.parseInt(request.getParameter("storeInventoryID")));
-				gstatement.executeQuery();
-			}
+			//if (inventoryStocked != null){
+			//	queryString = "update inventory set inventoryStock = ? WHERE storeInventoryID = ?";
+			//	PreparedStatement gstatement = con.prepareStatement(queryString);
+			//	gstatement.setInt(1, Integer.parseInt(request.getParameter("inventoryStock")));
+			//	gstatement.setInt(2, Integer.parseInt(request.getParameter("storeInventoryID")));
+			//	gstatement.executeUpdate();
+				
+			//}
 	
-	
-	
-   
             con.close();
         } catch(SQLException e) { 
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-	  <div class="add-button-container">
-        <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
-            <button>Back Home</button>
-        </a>
-    </div>
-
   </body>
 </html>

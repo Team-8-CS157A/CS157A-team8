@@ -21,6 +21,9 @@
             user = "root";
             String password = "@J4wn1033";
 
+            String firstName = request.getParameter("FirstName");
+            String lastName = request.getParameter("LastName");
+
             try {
 
                 // Gets database connection + JDBC driver
@@ -38,7 +41,7 @@
         %>
                     <tr>
                         <td> <%-- Name --%>
-                            <a href="item.jsp?name=<%=rs.getString(1)%>">
+                            <a href="item.jsp?name=<%=rs.getString(1)%>&FirstName=<%=firstName%>&LastName=<%=lastName%>">
                                 <%= rs.getString(1) %>
                             </a>
                         </td>
@@ -58,7 +61,7 @@
     </table>
 
     <div class="add-button-container">
-        <a href="empHome.jsp">
+        <a href="empHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <button>Back Home</button>
         </a>
     </div>

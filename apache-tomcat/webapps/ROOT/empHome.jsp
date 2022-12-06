@@ -6,7 +6,17 @@
 <body>
     <h1>Employee Home</h1>
 
-    <a href="itemsEmp.jsp">
+    <%
+        String firstName = request.getParameter("FirstName");
+        String lastName = request.getParameter("FirstName");
+    %>
+
+    <h1>
+        <%out.println(firstName + " " + lastName + "'s ");%>
+        Admin Home
+    </h1>
+
+    <a href="itemsEmp.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Show All Items</h2>
     </a>
 

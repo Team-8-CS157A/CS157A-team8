@@ -2,7 +2,7 @@
 <%@page import="java.util.*" %>
 
 <html>
-  <head>
+<head>
     <title>Inventory Manager</title>
     <style><%@include file="/css/register.css"%></style>
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,6 +56,7 @@
 //              out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " +
 //                      rs.getString(4) + " " + rs.getInt(5) + " " + rs.getInt(6) + "<br/><br/>");
 //          }
+
   %>
     <div class="reg-header">
         <h1>Inventory Manager</h1>
@@ -117,23 +118,23 @@
 
 //                            updateQuery = pstatement.executeUpdate();
 
-                        %>
-<%--                          <p>Selected Admin: ${param.admin}</p>--%>
+                %>
+                <%--                          <p>Selected Admin: ${param.admin}</p>--%>
 
-                    </div>
-                    <div class="reg-button-container">
-                        <button>Register</button>
-                    </div>
-                </form>
-        </div>
+            </div>
+            <div class="reg-button-container">
+                <button>Register</button>
+            </div>
+        </form>
     </div>
-    <%
-            rs.close();
-            stmt.close();
-            con.close();
-        } catch(SQLException e) { 
-            out.println("SQLException caught: " + e.getMessage()); 
-        }
-    %>
-  </body>
+</div>
+<%
+        rs.close();
+        stmt.close();
+        con.close();
+    } catch(SQLException e) {
+        out.println("SQLException caught: " + e.getMessage());
+    }
+%>
+</body>
 </html>

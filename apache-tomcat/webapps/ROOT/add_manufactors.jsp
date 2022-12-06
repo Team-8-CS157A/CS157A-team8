@@ -68,7 +68,7 @@
             java.sql.Connection con; 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false",user, password);
-            out.println(db + " database successfully opened.<br/><br/>");
+//            out.println(db + " database successfully opened.<br/><br/>");
 			
 			// String SQL insert statement, should correspond to table information in database
 			String queryString = "insert into manufacturer(manfID,name,address) values(?,?,?)";
@@ -83,7 +83,7 @@
 			pstatement.setString(3, manuAddress);
 		
 			updateQuery = pstatement.executeUpdate();
-            
+            out.println("Successfully added new manufacturer!");
 			// Teacher's code to print out enteries in database 
 //            out.println("Initial entries in table \"manufacturer\": <br/>");
 //            Statement stmt = con.createStatement();

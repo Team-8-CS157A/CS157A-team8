@@ -4,6 +4,10 @@
     <title>Items Page</title>
     <style><%@include file="/css/items.css"%></style>
     <style><%@include file="/css/add.css"%></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
     <h1>Inventory Manager</h1>

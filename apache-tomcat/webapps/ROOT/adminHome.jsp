@@ -53,7 +53,7 @@
     </a>
 	
 	<a href="sortCatAdm.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
-        <h2>Sort by Catagory</h2>
+        <h2>Sort by Category</h2>
     </a>
 	
 	<a href="showEmpAdmin.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>&AdminID=<%=adminID%>">
@@ -61,7 +61,7 @@
     </a>
 
 	<a href="add_manufactors.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
-        <h2>Add Manufactors</h2>
+        <h2>Add Manufacturers</h2>
     </a>
 	
 	<a href="add_store.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">

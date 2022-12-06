@@ -96,7 +96,7 @@
         for (Map.Entry<String, String> catType : categories.entrySet()) {
     %>
     <div class="add-button-container">
-        <a href="sortCatAdm.jsp?Category=<%=catType.getValue()%>">
+        <a href="sortCatEmp.jsp?Category=<%=catType.getValue()%>">
             <button><%=catType.getKey()%></button>
         </a>
     </div>

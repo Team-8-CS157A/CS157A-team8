@@ -1,14 +1,17 @@
 <html>
 <head>
     <title>Inventory Manager</title>
-    <style><%@include file="/css/add.css"%></style>
+    <style><%@include file="/css/adminHome.css"%></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Employee Home</h1>
 
     <%
         String firstName = request.getParameter("FirstName");
-        String lastName = request.getParameter("FirstName");
+        String lastName = request.getParameter("LastName");
     %>
 
     <h1>

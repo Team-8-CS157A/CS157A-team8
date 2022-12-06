@@ -20,6 +20,9 @@
 
     int updateQuery = 0;
 
+    String firstName = request.getParameter("FirstName");
+    String lastName = request.getParameter("LastName");
+
     try {
 
         // Gets database connection + JDBC driver
@@ -79,7 +82,7 @@
 <%--    </h3>--%>
     <div class="reg-button-container">
         <button>
-            <a href="add_item.jsp">Add another item</a>
+            <a href="add_item.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">Add another item</a>
         </button>
     </div>
 

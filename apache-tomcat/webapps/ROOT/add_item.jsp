@@ -16,6 +16,8 @@
     String password = "rootpass";
 
 //    String name = request.getParameter("name");
+    String firstName = request.getParameter("FirstName");
+    String lastName = request.getParameter("LastName");
 
     try {
 
@@ -32,7 +34,7 @@
     <h1>Inventory Manager</h1>
     <h2>Add Item</h2>
     <div class="add-body">
-        <form action="add_item_confirmation.jsp">
+        <form action="add_item_confirmation.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <div class="add-input-container">
                 <label for="">Name</label>
                 <input placeholder="Name" name="name" type="text" />
@@ -86,10 +88,6 @@
         </form>
 
         <div class="add-button-container">
-            <%
-                String firstName = request.getParameter("FirstName");
-                String lastName = request.getParameter("LastName");
-            %>
             <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
                 <button>Back to Admin Home</button>
             </a>

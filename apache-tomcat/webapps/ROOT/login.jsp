@@ -38,7 +38,7 @@
 		String db = "inventory_manager";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "@J4wn1033";
+        String password = "Panda101";
 	
 	// Gets information from the HTML file above
         String firstName = request.getParameter("FirstName");

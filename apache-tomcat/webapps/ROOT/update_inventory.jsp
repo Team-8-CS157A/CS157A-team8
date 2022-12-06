@@ -3,13 +3,10 @@
   <head>
     <title>Inventory Manager</title>
       <style><%@include file="/css/update.css"%></style>
-
   </head>
   <body>
-    <h1>Inventory Manager</h1>
+    <h1>Inventory Manager Application</h1>
 	<h2>Update Inventory</h2>
-	<h3>note, this page should only be accessible if user is logged in as a admin
-		which will be needed to be added as a feature</h3>
     
      <div class="update-inventory-body">
                 <form action="">
@@ -41,7 +38,7 @@
 		String db = "inventory_manager";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "@J4wn1033";
+        String password = "Panda101";
 	
 	// Gets information from the HTML file above
 	//	int storeInventoryID = Integer.parseInt(request.getParameter("adminIDReg")); // the parse doesn't work for int vars
@@ -95,5 +92,11 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
+	  <div class="add-button-container">
+        <a href="adminHome.jsp">
+            <button>Back Home</button>
+        </a>
+    </div>
+
   </body>
 </html>

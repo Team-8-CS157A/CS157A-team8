@@ -36,7 +36,7 @@
 		String db = "inventory_manager";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "root";
+        String password = "Panda101";
 	
 	// Gets information from the HTML file above
 	//	int manuID = Integer.parseInt(request.getParameter("adminIDReg")); // the parse doesn't work for int var

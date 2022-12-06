@@ -1,5 +1,5 @@
 <%@ page import="java.sql.*"%>
-<%@ page import="jakarta.servlet.RequestDispatcher" %>
+<%@ page import="jakarta.servlet.RequestDispatcher.* "%>
 <html>
 <head>
     <title>Inventory Manager</title>
@@ -48,8 +48,8 @@
 
         <div class="add-button-container">
             <a href="adminHome.jsp">
-                <button>Back Home</button>
-            </a>
+				<h2>Back to Admin Home</h2>
+			</a>
         </div>
     </div>
 </div>
@@ -58,7 +58,7 @@
     String db = "inventory_manager";
     String user; // assumes database name is the same as username
     user = "root";
-    String password = "root";
+    String password = "Panda101";
 
     String name = request.getParameter("name");
 
@@ -89,13 +89,13 @@
         String insertString = "INSERT INTO Item (name, servingSize, cal, sugar, color, price, stockNum) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pstatement = con.prepareStatement(insertString);
-        pstatement.setString(7, name);
-        pstatement.setInt(1, Integer.parseInt(request.getParameter("servingSize")));
-        pstatement.setInt(2, Integer.parseInt(request.getParameter("calories")));
-        pstatement.setInt(3, Integer.parseInt(request.getParameter("sugar")));
-        pstatement.setString(4, request.getParameter("color"));
-        pstatement.setDouble(5, Double.parseDouble(request.getParameter("price")));
-        pstatement.setInt(6, Integer.parseInt(request.getParameter("stockNum")));
+        pstatement.setString(1, name);
+        pstatement.setInt(2, Integer.parseInt(request.getParameter("servingSize")));
+        pstatement.setInt(3, Integer.parseInt(request.getParameter("calories")));
+        pstatement.setInt(4, Integer.parseInt(request.getParameter("sugar")));
+        pstatement.setString(5, request.getParameter("color"));
+        pstatement.setDouble(6, Double.parseDouble(request.getParameter("price")));
+        pstatement.setInt(7, Integer.parseInt(request.getParameter("stockNum")));
 
         if (name != null) {
             int queryResult = pstatement.executeUpdate();

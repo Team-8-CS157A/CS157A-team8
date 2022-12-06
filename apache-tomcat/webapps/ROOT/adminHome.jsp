@@ -13,7 +13,7 @@
     String db = "inventory_manager";
     String user; // assumes database name is the same as username
     user = "root";
-    String password = "root";
+    String password = "Panda101";
 
     PreparedStatement pstatement = null;
     int updateQuery = 0;
@@ -46,6 +46,30 @@
 
     <a href="itemsAdmin.jsp">
         <h2>Show All Items</h2>
+    </a>
+	
+    <a href="update_inventory.jsp">
+        <h2>Update Inventory</h2>
+    </a>
+
+    <a href="remove_item.jsp">
+        <h2>Remove Item</h2>
+    </a>
+	
+	<a href="sortCatAdm.jsp">
+        <h2>Sort by Catagory</h2>
+    </a>
+	
+	<a href="showEmpAdmin.jsp">
+        <h2>Show Employees</h2>
+    </a>
+
+	<a href="add_manufactors.jsp">
+        <h2>Add Manufactors</h2>
+    </a>
+	
+	<a href="add_store.jsp">
+        <h2>Add Store</h2>
     </a>
 
     <a href="Home.jsp">

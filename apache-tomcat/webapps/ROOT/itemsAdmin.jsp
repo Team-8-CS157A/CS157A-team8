@@ -27,7 +27,7 @@
             String db = "inventory_manager";
             String user; // assumes database name is the same as username
             user = "root";
-            String password = "root";
+            String password = "Panda101";
 
             try {
 
@@ -38,7 +38,7 @@
 
                 // Teacher's code to print out enteries in database
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM Item");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM item");
                 while (rs.next()) {
                     // HTML code is within the while loop below
                         // SQL errors when having rs.getInt() or rs.getDouble()
@@ -67,7 +67,7 @@
 
     <div class="add-button-container">
         <a href="adminHome.jsp">
-            <button>Back Home</button>
+            <button>Back to Admin Home</button>
         </a>
     </div>
 

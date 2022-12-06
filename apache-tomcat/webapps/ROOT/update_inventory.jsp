@@ -38,6 +38,9 @@
         String user; // assumes database name is the same as username
           user = "root";
         String password = "Panda101";
+
+        String firstName = request.getParameter("FirstName");
+        String lastName = request.getParameter("LastName");
 	
 	// Gets information from the HTML file above
        String storeID = request.getParameter("storeID");
@@ -87,7 +90,7 @@
         }
     %>
 	  <div class="add-button-container">
-        <a href="adminHome.jsp">
+        <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <button>Back Home</button>
         </a>
     </div>

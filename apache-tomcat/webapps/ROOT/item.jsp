@@ -30,9 +30,11 @@
             String db = "inventory_manager";
             String user; // assumes database name is the same as username
             user = "root";
-            String password = "Panda101";
+            String password = "root";
 
             String name = request.getParameter("name");
+            String firstName = request.getParameter("FirstName");
+            String lastName = request.getParameter("LastName");
 
             try {
 
@@ -74,7 +76,16 @@
     </table>
 
     <div class="add-button-container">
-        <a href="itemsAdmin.jsp">
+        <%
+            String userType = request.getParameter("Type");
+            String linkStart;
+            if (userType.equals("Admin")) {
+                linkStart = "itemsAdmin.jsp";
+            } else {
+                linkStart = "itemsEmp.jsp";
+            }
+        %>
+        <a href="<%=linkStart%>?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <button>Back To Items</button>
         </a>
     </div>

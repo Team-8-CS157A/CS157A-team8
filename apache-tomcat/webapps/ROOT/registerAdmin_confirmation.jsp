@@ -16,7 +16,7 @@
     String db = "inventory_manager";
     String user; // assumes database name is the same as username
     user = "root";
-    String password = "root";
+    String password = "rootpass";
 
     // Gets information from the HTML file above
     String firstName = request.getParameter("firstNameReg");
@@ -24,10 +24,13 @@
     String phoneNum = request.getParameter("phoneNumReg");
     Random randID = new Random();       // generate random number up to 1000
     int adminID = randID.nextInt(1000); // use randID to generate random adminID
+    int userID = randID.nextInt(1000);
     int storeID = Integer.parseInt(request.getParameter("store"));
 
     // Stuff in order to insert
     PreparedStatement pstatement = null;
+    PreparedStatement usersPstatement = null;
+
     int updateQuery = 0;
 
     try {
@@ -40,7 +43,10 @@
 
         // String SQL insert statement, should correspond to table information in database
         String queryStringAdminTable = "insert into adminusers(AdminID,FirstName,LastName,phoneNumber, storeID) values(?,?,?,?,?)";
+        String queryStringUsersTable = "insert into Users(userID,FirstName,LastName,phoneNumber, storeID) values(?,?,?,?,?)";
         pstatement = con.prepareStatement(queryStringAdminTable);
+        usersPstatement = con.prepareStatement(queryStringUsersTable);
+
         // Sets the query info to variables that you get in HTML file
 
         pstatement.setInt(1, adminID);
@@ -48,15 +54,16 @@
         pstatement.setString(3, lastName);
         pstatement.setString(4, phoneNum);
         pstatement.setInt(5, storeID);
+
+        usersPstatement.setInt(1, userID);
+        usersPstatement.setString(2, firstName);
+        usersPstatement.setString(3, lastName);
+        usersPstatement.setString(4, phoneNum);
+        usersPstatement.setInt(5, storeID);
+
         updateQuery = pstatement.executeUpdate();
+        updateQuery = usersPstatement.executeUpdate();
 
-
-        // Teacher's code to print out enteries in database
-//        out.println("Initial entries in table \"adminusers\": <br/>");
-//        Statement stmt = con.createStatement();
-//        Statement storeStmt = con.createStatement();
-//        ResultSet rs = stmt.executeQuery("SELECT * FROM adminusers;");
-//        ResultSet storeRS = storeStmt.executeQuery("Select * FROM store;");
 
 %>
 <div class="reg-header">
@@ -75,7 +82,7 @@
 
 </div>
 <%
-//        rs.close();
+        //        rs.close();
 //        stmt.close();
         con.close();
     } catch(SQLException e) {

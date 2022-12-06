@@ -21,7 +21,11 @@
         </form>
 		
 		<div class="add-button-container">
-			<a href="adminHome.jsp">
+			<%
+				String firstName = request.getParameter("FirstName");
+				String lastName = request.getParameter("LastName");
+			%>
+			<a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
 				<button>Back to Admin Home</button>
 			</a>
 		</div>
@@ -70,8 +74,7 @@
 						System.out.println("Successfully deleted item: " + name);
 
 						String redirectPage = "remove_item.jsp";
-						RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
-						dd.forward(request, response);
+						response.sendRedirect(redirectPage);
 					}
 				}
 				

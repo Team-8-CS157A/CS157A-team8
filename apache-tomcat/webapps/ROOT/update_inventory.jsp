@@ -1,37 +1,36 @@
 <%@ page import="java.sql.*"%>
 <html>
-  <head>
-    <title>Inventory Manager</title>
-      <style><%@include file="/css/update.css"%></style>
-  </head>
-  <body>
-    <h1>Inventory Manager Application</h1>
-	<h2>Update Inventory</h2>
-    
-     <div class="update-inventory-body">
-                <form action="">
-					<div class="update-inventory-input-container">
-                        <label for="">Store Inventory ID</label>
-                        <input placeholder = "ID Number" NAME = "storeInventoryID-UI" type="int" />
-                    </div>
-					<div class="update-inventory-input-container">
-                        <label for="">Item to add</label>
-                        <input  placeholder = "Item name" NAME = "itemsStocked-UI"type="text" />
-                    </div>
-					<div class="update-inventory-input-container">
-                        <label for="">Amount of Inventory</label>
-                        <input  placeholder = "Number of items" NAME = "itemAmt-UI"type="int" />
-                    </div>
-					<div class="update-inventory-input-container">
-                        <label for="">Store ID</label>
-                        <input  placeholder = "Store ID" NAME = "storeID-UI"type="int" />
-                    </div>
-                    <div class="update-inventory-button-container">
-                        <button>Add Item</button>
-                    </div>
-                </form>
+<head>
+    <title>Update Inventory</title>
+    <style><%@include file="/css/items.css"%></style>
+    <style><%@include file="/css/add.css"%></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+ 
+ <body>
+	<div class="update-inventory-body">
+	<h1>Please fill in all required* fields, then fill in the fields you would like to update</h1>
+        <form action="">
+			<div class="update-inventory-input-container">
+                <label for="">StoreInventoryID</label>
+                <input placeholder = "Required*" NAME = "storeInventoryID" type="int" />
             </div>
-        </div>
+			<div class="update-inventory-input-container">
+                <label for="">ItemsStocked</label>
+                <input placeholder = "Item Name" NAME = "itemsStocked" type="String" />
+            </div>			
+			<div class="update-inventory-input-container">
+				<label for="">Number of Stocked items</label>
+                <input  placeholder = "Number of Stocked Item" NAME = "inventoryStock" type="int" />
+            </div>
+			<div class="update-inventory-input-container">
+                <label for="">Store ID</label>
+                <input  placeholder = "Required*" NAME = "storeID"type="int" />
+            </div>    
+        </form>
+    </div>
     <% 
 	
 	// Database info
@@ -41,11 +40,11 @@
         String password = "Panda101";
 	
 	// Gets information from the HTML file above
-	//	int storeInventoryID = Integer.parseInt(request.getParameter("adminIDReg")); // the parse doesn't work for int vars
-		String itemName = request.getParameter("itemsStocked-UI");
-	//	int inventoryStock= Integer.parseInt(request.getParameter("adminIDReg")); // the parse doesn't work for int vars
-	//	int storeID = Integer.parseInt(request.getParameter("storeIDReg")); // the parse doesn't work for int vars
-		
+       String storeID = request.getParameter("storeID");
+       String itemsStocked = request.getParameter("itemsStocked");
+	   String inventoryStock = request.getParameter("inventoryStock");
+	   
+	   
 	// Stuff in order to insert
 		PreparedStatement pstatement = null;
 		int updateQuery = 0;
@@ -59,34 +58,29 @@
             out.println(db + " database successfully opened.<br/><br/>");
 			
 			// String SQL insert statement, should correspond to table information in database
-			String queryString = "insert into inventory(storeInventoryID,itemsStocked,inventoryStock,storeID) values(?,?,?,?)";
-			pstatement = con.prepareStatement(queryString);
+			String queryString;
 			
-			// Sets the query info to variables that you get in HTML file			
-			
-			pstatement.setInt(1, 529); 		// storeInventoryID field test
-		//	pstatement.setString(1, adminID);
-		
-			pstatement.setString(2, itemName);
-			
-			pstatement.setInt(3, 151); 		// inventory stock field test
-		//  pstatement.setString(3, storeID);
-		
-			pstatement.setInt(4, 1551); 		// storeID field test
-		//  pstatement.setString(4, storeID);
-		
-			updateQuery = pstatement.executeUpdate();
-            
-			// Teacher's code to print out enteries in database 
-            out.println("Initial entries in table \"inventory\": <br/>");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM inventory");
-            while (rs.next()) {
-                out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(1) + " " + 
-							rs.getInt(1) + "<br/><br/>");
-            }
-            rs.close();
-            stmt.close();
+			if(storeID== null){ // code to prevent page to run on render
+				return;
+			}
+			if(itemsStocked != null){
+				queryString = "update inventory set itemsStocked = ? WHERE storeInventoryID = ?";
+				PreparedStatement statement = con.prepareStatement(queryString);
+				statement.setString(1, itemsStocked);
+				statement.setInt(2, Integer.parseInt(request.getParameter("storeInventoryID")));
+				statement.executeQuery();
+			}
+			if (inventoryStock != null){
+				queryString = "update inventory set inventoryStock = ? WHERE storeInventoryID = ?";
+				PreparedStatement gstatement = con.prepareStatement(queryString);
+				gstatement.setInt(1, Integer.parseInt(request.getParameter("inventoryStock")));
+				gstatement.setInt(2, Integer.parseInt(request.getParameter("storeInventoryID")));
+				gstatement.executeQuery();
+			}
+	
+	
+	
+   
             con.close();
         } catch(SQLException e) { 
             out.println("SQLException caught: " + e.getMessage()); 

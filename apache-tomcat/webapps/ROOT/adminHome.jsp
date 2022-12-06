@@ -15,23 +15,19 @@
     user = "root";
     String password = "rootpass";
 
-    PreparedStatement pstatement = null;
-    int updateQuery = 0;
-
     try {
-
         // Gets database connection + JDBC driver
         java.sql.Connection con;
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false", user, password);
-        out.println(db + " database successfully opened.<br/><br/>");
-
 
         String firstName = request.getParameter("FirstName");
         String lastName = request.getParameter("LastName");
 
-
-
+        PreparedStatement pstatement = con.prepareStatement("SELECT AdminID from AdminUsers WHERE FirstName = '" + firstName + "' AND LastName = '" + lastName + "';");
+        ResultSet rs = pstatement.executeQuery();
+        rs.next();
+        int adminID = rs.getInt(1);
 %>
     <%-- Might remove later because it re-renders as "null null"
     after returning from add_item.jsp or itemsAdmin.jsp --%>
@@ -40,35 +36,35 @@
         Admin Home
     </h1>
 
-    <a href="add_item.jsp">
+    <a href="add_item.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Add Item</h2>
     </a>
 
-    <a href="itemsAdmin.jsp">
+    <a href="itemsAdmin.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Show All Items</h2>
     </a>
 	
-    <a href="update_inventory.jsp">
+    <a href="update_inventory.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Update Inventory</h2>
     </a>
 
-    <a href="remove_item.jsp">
+    <a href="remove_item.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Remove Item</h2>
     </a>
 	
-	<a href="sortCatAdm.jsp">
-        <h2>Sort by Catagory</h2>
+	<a href="sortCatAdm.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
+        <h2>Sort by Category</h2>
     </a>
 	
-	<a href="showEmpAdmin.jsp">
+	<a href="showEmpAdmin.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>&AdminID=<%=adminID%>">
         <h2>Show Employees</h2>
     </a>
 
-	<a href="add_manufactors.jsp">
-        <h2>Add Manufactors</h2>
+	<a href="add_manufactors.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
+        <h2>Add Manufacturers</h2>
     </a>
 	
-	<a href="add_store.jsp">
+	<a href="add_store.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Add Store</h2>
     </a>
 
@@ -76,7 +72,6 @@
         <h2>Log Out</h2>
     </a>
 <%
-//        stmt.close();
         con.close();
     } catch(SQLException e) {
         out.println("SQLException caught: " + e.getMessage());

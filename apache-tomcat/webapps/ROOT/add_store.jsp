@@ -31,6 +31,16 @@
                         <button>Add Store</button>
                     </div>
                 </form>
+
+                <div class="add-button-container">
+                    <%
+                        String firstName = request.getParameter("FirstName");
+                        String lastName = request.getParameter("LastName");
+                    %>
+                    <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
+                        Back to Admin Home
+                    </a>
+                </div>
         </div>
     </div>
     <% 
@@ -78,8 +88,10 @@
 			pstatement.setInt(5, storeInvID);
 
 			updateQuery = pstatement.executeUpdate();
-            
-			// Teacher's code to print out enteries in database 
+            out.println("Successfully added new manufacturer!");
+
+
+            // Teacher's code to print out enteries in database
 //            out.println("Initial entries in table \"store\": <br/>");
 //            Statement stmt = con.createStatement();
 //            ResultSet rs = stmt.executeQuery("SELECT * FROM store");

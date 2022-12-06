@@ -14,11 +14,6 @@
     <table id="itemsTable" style="width: 50%">
         <tr>
             <th>Name</th>
-<%--            <td>Serving Size</td>--%>
-<%--            <td>Calories</td>--%>
-<%--            <td>Sugar</td>--%>
-<%--            <td>Color</td>--%>
-<%--            <td>Price</td>--%>
             <th>Stock Number</th>
         </tr>
 
@@ -29,6 +24,9 @@
             user = "root";
             String password = "rootpass";
 
+            String firstName = request.getParameter("FirstName");
+            String lastName = request.getParameter("LastName");
+
             try {
 
                 // Gets database connection + JDBC driver
@@ -38,7 +36,7 @@
 
                 // Teacher's code to print out enteries in database
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM item");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM Item");
                 while (rs.next()) {
                     // HTML code is within the while loop below
                         // SQL errors when having rs.getInt() or rs.getDouble()
@@ -46,7 +44,7 @@
         %>
                     <tr>
                         <td> <%-- Name --%>
-                            <a href="item.jsp?name=<%=rs.getString(1)%>">
+                            <a href="item.jsp?name=<%=rs.getString(1)%>&FirstName=<%=firstName%>&LastName=<%=lastName%>&Type=Admin">
                                 <%= rs.getString(1) %>
                             </a>
                         </td>
@@ -66,7 +64,7 @@
     </table>
 
     <div class="add-button-container">
-        <a href="adminHome.jsp">
+        <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <button>Back to Admin Home</button>
         </a>
     </div>

@@ -4,6 +4,10 @@
     <title>Items Page</title>
     <style><%@include file="/css/items.css"%></style>
     <style><%@include file="/css/add.css"%></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
     <h1>Inventory Manager</h1>
@@ -22,6 +26,10 @@
             user = "root";
             String password = "rootpass";
 
+            String firstName = request.getParameter("FirstName");
+            String lastName = request.getParameter("LastName");
+            String adminID = request.getParameter("AdminID");
+
             try {
 
                 // Gets database connection + JDBC driver
@@ -31,7 +39,7 @@
 
                 // Teacher's code to print out enteries in database
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM Emp_Users");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM Emp_Users WHERE adminID=" + adminID + ";");
                 while (rs.next()) {
                     // HTML code is within the while loop below
                     // SQL errors when having rs.getInt() or rs.getDouble()
@@ -55,8 +63,8 @@
     </table>
 
     <div class="add-button-container">
-        <a href="empHome.jsp">
-            <button>Back Home</button>
+        <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
+            <button>Back to Admin Home</button>
         </a>
     </div>
 

@@ -14,19 +14,29 @@
         <h1>Inventory Manager</h1>
         <h2>Add Manufacturer</h2>
         <div class="add-body">
-                <form action="">
-                    <div class="add-input-container">
-                        <label for="">Manufacturer Name</label>
-                        <input placeholder = "Name" NAME = "manuName-AM" type="text" />
-                    </div>
-                    <div class="add-input-container">
-                        <label for="">Manufacturer Address</label>
-                        <input placeholder = "123 Example Address" NAME = "manuAddress-AM" type="text" />
-                    </div>
-                     <div class="add-button-container">
-                        <button>Add Manufacturer</button>
-                    </div>
-                </form>
+            <form action="">
+                <div class="add-input-container">
+                    <label for="">Manufacturer Name</label>
+                    <input placeholder = "Name" NAME = "manuName-AM" type="text" />
+                </div>
+                <div class="add-input-container">
+                    <label for="">Manufacturer Address</label>
+                    <input placeholder = "123 Example Address" NAME = "manuAddress-AM" type="text" />
+                </div>
+                 <div class="add-button-container">
+                    <button>Add Manufacturer</button>
+                </div>
+            </form>
+
+            <div class="add-button-container">
+                <%
+                    String firstName = request.getParameter("FirstName");
+                    String lastName = request.getParameter("LastName");
+                %>
+                <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
+                    Back to Admin Home
+                </a>
+            </div>
         </div>
     </div>
     <% 
@@ -58,7 +68,7 @@
             java.sql.Connection con; 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false",user, password);
-            out.println(db + " database successfully opened.<br/><br/>");
+//            out.println(db + " database successfully opened.<br/><br/>");
 			
 			// String SQL insert statement, should correspond to table information in database
 			String queryString = "insert into manufacturer(manfID,name,address) values(?,?,?)";
@@ -73,7 +83,7 @@
 			pstatement.setString(3, manuAddress);
 		
 			updateQuery = pstatement.executeUpdate();
-            
+            out.println("Successfully added new manufacturer!");
 			// Teacher's code to print out enteries in database 
 //            out.println("Initial entries in table \"manufacturer\": <br/>");
 //            Statement stmt = con.createStatement();

@@ -19,19 +19,13 @@
     int updateQuery = 0;
 
     try {
-
         // Gets database connection + JDBC driver
         java.sql.Connection con;
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_manager?autoReconnect=true&useSSL=false", user, password);
-        out.println(db + " database successfully opened.<br/><br/>");
-
 
         String firstName = request.getParameter("FirstName");
         String lastName = request.getParameter("LastName");
-
-
-
 %>
     <%-- Might remove later because it re-renders as "null null"
     after returning from add_item.jsp or itemsAdmin.jsp --%>
@@ -40,11 +34,11 @@
         Admin Home
     </h1>
 
-    <a href="add_item.jsp">
+    <a href="add_item.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Add Item</h2>
     </a>
 
-    <a href="itemsAdmin.jsp">
+    <a href="itemsAdmin.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Show All Items</h2>
     </a>
 
@@ -52,7 +46,6 @@
         <h2>Log Out</h2>
     </a>
 <%
-//        stmt.close();
         con.close();
     } catch(SQLException e) {
         out.println("SQLException caught: " + e.getMessage());

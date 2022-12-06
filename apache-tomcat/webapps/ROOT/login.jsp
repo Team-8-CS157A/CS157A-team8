@@ -38,7 +38,7 @@
 		String db = "inventory_manager";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "@J4wn1033";
+        String password = "root";
 	
 	// Gets information from the HTML file above
         String firstName = request.getParameter("FirstName");
@@ -46,6 +46,10 @@
         String phoneNumber = request.getParameter("phoneNumber");
 
         String redirectPage;
+
+        if (firstName == null) {
+            return;
+        }
 		
         try {
             
@@ -82,13 +86,11 @@
 
             // If user exist redirect to another page, takes in redirectPage as a variable redirect
             if (doesUserExistAdmin == 1) {
-                redirectPage = "adminHome.jsp";
-                RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
-                dd.forward(request, response);
+                redirectPage = "http://localhost:8080/adminHome.jsp?FirstName=" + firstName + "&LastName=" + lastName;
+                response.sendRedirect(redirectPage);
             } else if (doesUserExistEmp == 1) {
-                redirectPage = "empHome.jsp";
-                RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
-                dd.forward(request, response);
+                redirectPage = "http://localhost:8080/empHome.jsp?FirstName=" + firstName + "&LastName=" + lastName;
+                response.sendRedirect(redirectPage);
             } else {
                 out.println("User with these credentials does not exist!");
             }

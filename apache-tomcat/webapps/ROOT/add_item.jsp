@@ -1,5 +1,4 @@
 <%@ page import="java.sql.*"%>
-<%@ page import="jakarta.servlet.RequestDispatcher" %>
 <html>
 <head>
     <title>Inventory Manager</title>
@@ -47,7 +46,11 @@
         </form>
 
         <div class="add-button-container">
-            <a href="adminHome.jsp">
+            <%
+                String firstName = request.getParameter("FirstName");
+                String lastName = request.getParameter("LastName");
+            %>
+            <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
                 <button>Back Home</button>
             </a>
         </div>
@@ -89,13 +92,13 @@
         String insertString = "INSERT INTO Item (name, servingSize, cal, sugar, color, price, stockNum) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pstatement = con.prepareStatement(insertString);
-        pstatement.setString(7, name);
-        pstatement.setInt(1, Integer.parseInt(request.getParameter("servingSize")));
-        pstatement.setInt(2, Integer.parseInt(request.getParameter("calories")));
-        pstatement.setInt(3, Integer.parseInt(request.getParameter("sugar")));
-        pstatement.setString(4, request.getParameter("color"));
-        pstatement.setDouble(5, Double.parseDouble(request.getParameter("price")));
-        pstatement.setInt(6, Integer.parseInt(request.getParameter("stockNum")));
+        pstatement.setString(1, name);
+        pstatement.setInt(2, Integer.parseInt(request.getParameter("servingSize")));
+        pstatement.setInt(3, Integer.parseInt(request.getParameter("calories")));
+        pstatement.setInt(4, Integer.parseInt(request.getParameter("sugar")));
+        pstatement.setString(5, request.getParameter("color"));
+        pstatement.setDouble(6, Double.parseDouble(request.getParameter("price")));
+        pstatement.setInt(7, Integer.parseInt(request.getParameter("stockNum")));
 
         if (name != null) {
             int queryResult = pstatement.executeUpdate();
@@ -103,9 +106,8 @@
             if (queryResult != 0) {
                 System.out.println("Successfully added item: " + name);
 
-                String redirectPage = "add_item.jsp";
-                RequestDispatcher dd = request.getRequestDispatcher(redirectPage);
-                dd.forward(request, response);
+                String redirectPage = "http://localhost:8080/add_item.jsp?FirstName=" + firstName + "&LastName=" + lastName;
+                response.sendRedirect(redirectPage);
             }
         }
 

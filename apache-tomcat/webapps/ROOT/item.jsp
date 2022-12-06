@@ -30,9 +30,11 @@
             String db = "inventory_manager";
             String user; // assumes database name is the same as username
             user = "root";
-            String password = "@J4wn1033";
+            String password = "root";
 
             String name = request.getParameter("name");
+            String firstName = request.getParameter("FirstName");
+            String lastName = request.getParameter("LastName");
 
             try {
 
@@ -74,7 +76,7 @@
     </table>
 
     <div class="add-button-container">
-        <a href="itemsAdmin.jsp">
+        <a href="itemsAdmin.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
             <button>Back To Items</button>
         </a>
     </div>

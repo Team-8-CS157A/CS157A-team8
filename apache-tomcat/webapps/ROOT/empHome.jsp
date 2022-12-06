@@ -19,6 +19,10 @@
     <a href="itemsEmp.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
         <h2>Show All Items</h2>
     </a>
+	
+	<a href="sortCatEmp.jsp">
+        <h2>Sort by Category</h2>
+    </a>
 
     <a href="Home.jsp">
         <h2>Log Out</h2>

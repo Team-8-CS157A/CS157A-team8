@@ -51,7 +51,7 @@
                 String lastName = request.getParameter("LastName");
             %>
             <a href="adminHome.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">
-                <button>Back Home</button>
+                <button>Back to Admin Home</button>
             </a>
         </div>
     </div>

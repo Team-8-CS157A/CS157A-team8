@@ -16,7 +16,7 @@
 
     <h1>
         <%out.println(firstName + " " + lastName + "'s ");%>
-        Admin Home
+        Employee Home
     </h1>
 
     <a href="itemsEmp.jsp?FirstName=<%=firstName%>&LastName=<%=lastName%>">

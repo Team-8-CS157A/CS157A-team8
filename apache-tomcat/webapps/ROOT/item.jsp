@@ -30,7 +30,7 @@
             String db = "inventory_manager";
             String user; // assumes database name is the same as username
             user = "root";
-            String password = "root";
+            String password = "rootpass";
 
             String name = request.getParameter("name");
             String firstName = request.getParameter("FirstName");

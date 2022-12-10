@@ -60,12 +60,12 @@
         %>
                      <tr>
                          <td> <%= rs.getString(1) %> </td> <%-- Name --%>
-                         <td> <%= rs.getString(2) %> </td> <%-- Serving Size --%>
-                         <td> <%= rs.getString(3) %> </td> <%-- Calories --%>
-                         <td> <%= rs.getString(4) %> </td> <%-- Sugar --%>
-                         <td> <%= rs.getString(5) %> </td> <%-- Color --%>
-                         <td> <%= rs.getString(6) %> </td> <%-- Price --%>
-                         <td> <%= rs.getString(7) %> </td> <%-- Stock Num --%>
+                         <td> <%= rs.getString(3) %> </td> <%-- Serving Size --%>
+                         <td> <%= rs.getString(4) %> </td> <%-- Calories --%>
+                         <td> <%= rs.getString(5) %> </td> <%-- Sugar --%>
+                         <td> <%= rs.getString(6) %> </td> <%-- Color --%>
+                         <td> <%= rs.getString(7) %> </td> <%-- Price --%>
+                         <td> <%= rs.getString(8) %> </td> <%-- Stock Num --%>
                      </tr>
         <%
                  }
